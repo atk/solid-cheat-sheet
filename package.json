@@ -1,0 +1,25 @@
+{
+  "name": "solid-cheat-sheet",
+  "author": {
+    "name": "Alex Lohr",
+    "email": "alex.lohr@logmein.com"
+  },
+  "scripts": {
+    "dev": "solid-start dev",
+    "build": "solid-start build",
+    "start": "solid-start start"
+  },
+  "type": "module",
+  "devDependencies": {
+    "solid-app-router": "^0.1.14",
+    "solid-js": "^1.2.6",
+    "solid-meta": "^0.27.3",
+    "solid-start": "next",
+    "solid-start-node": "next",
+    "typescript": "^4.5.4",
+    "vite": "^2.7.10"
+  },
+  "engines": {
+    "node": ">=12"
+  }
+}
