@@ -28,11 +28,12 @@ dl dd {
 dl dt:not(:hover, :focus) + dd:not(:hover, :focus) { opacity: 0; pointer-events: none; }
 dd.bottom { transform: translateY(-100%); margin-top: -1.5rem; }
 dd.right { right: 0.5rem; }
-.comment { color: #606060 }
+.comment { color: #909090 }
 .func { color: #009000; }
 .class { color: #009030; }
 .key { color: #603060; }
 .var { color: #3090F0; }
+.lit { color: #900000; }
 dd a[href*="solidjs.com/docs"], dd a[href*="solidjs.com/guides"] {
   font-size: 0.8rem;
   color: #FFFFFF;

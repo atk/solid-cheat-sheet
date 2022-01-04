@@ -62,32 +62,67 @@ export default function Home() {
 <span class="comment">// or</span>{'\n'}
 const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>, <span class="var">refetch</span> &#125;] ={'\n  '}
 <span class="func">createResource</span>(<span class="var">source</span>, <span class="var">fetcher</span>, <span class="var">options</span>)
-</code></pre>
-            TODO
+</code></pre><br/>
+            <code><span class="func">fetcher</span>()</code> is a function that receives the output of <code><span class="func">source()</span></code>, if given, and returns a Promise that resolves to the value of the <code><span class="var">resource</span>()</code>, which also contains the properties <code><span class="key">loading</span><span class="comment"> (boolean)</span></code> and <code><span class="key">error</span><span class="comment"> (Error | undefined)</span></code>. <code><span class="var">mutate</span>(<span class="var">value</span>)</code> allows overwriting the value and <code><span class="var">refetch</span>()</code> will re-run the last call of <code><span class="func">fetcher</span>()</code>.<br/>
+            <a href="https://www.solidjs.com/docs/latest/api#createresource">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="createStore-desc"><code>createStore</code> - state objects</dt>
-          <dd role="tooltip" id="createStore-desc">TODO</dd>
+          <dd role="tooltip" id="createStore-desc">
+            <pre><code>const [<span class="var">store</span>, <span class="var">setStore</span>] = <span class="func">createStore</span>(<span class="var">initialValue</span>{')\n'}
+<span class="var">store</span>.<span class="key">nested</span>.<span class="key">prop</span>
+<span class="comment"> // is a getter that will be tracked</span>{'\n'}
+<span class="func">setStore</span>(<span class="lit">'nested'</span>, <span class="lit">'prop'</span>, <span class="var">value</span>{')\n'}
+<span class="func">setStore</span>(<span class="lit">'list'</span>, [<span class="lit">2</span>], <span class="var">value</span>{')\n'}</code></pre>
+            Creates a reactive <em>store</em>, an object that tracks read access to all (sub-)properties and a versatile setter function to allow fine-grained manipulation.<br/>
+            <a href="https://www.solidjs.com/docs/latest/api#createStore">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="produce-desc"><code>produce</code> - local store mutation</dt>
-          <dd role="tooltip" id="produce-desc">TODO</dd>
+          <dd role="tooltip" id="produce-desc">
+            <pre><code><span class="func">setStore</span>(<span class="func">produce</span>(<span class="var">store</span> =&gt; <span class="var">store</span>.<span class="key">list</span>.<span class="func">push</span>(<span class="lit">'new item'</span>))</code></pre>
+            Allows direct manipulation of the store object like in <a href="https://immerjs.github.io/immer/">Immer</a>.<br/>
+            <a href="https://www.solidjs.com/docs/latest/api#produce">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="reconcile-desc"><code>reconcile</code> - store diffing</dt>
-          <dd role="tooltip" id="reconcile-desc">TODO</dd>
+          <dd role="tooltip" id="reconcile-desc">
+            <pre><code><span class="func">setStore</span>(<span class="lit">'todos'</span>, <span class="func">reconcile</span>(<span class="var">todos</span>))</code></pre>
+            Diffs store with another immutable version, e.g. from a large API response<br/>
+            <a href="https://www.solidjs.com/docs/latest/api#reconcile">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="createMutable-desc"><code>createMutable</code> - store with setters</dt>
-          <dd role="tooltip" id="createMutable-desc">TODO</dd>
+          <dd role="tooltip" id="createMutable-desc">
+            Wraps a store into a proxy with reactive setters, so you can use it like in <a href="https://mobx.js.org">MobX</a>/<a href="https://vuejs.org/">Vue</a>.<br/>
+            <a href="https://www.solidjs.com/docs/latest/api#createMutable">Docs</a>
+          </dd>
         </dl>
       </section>
       <section>
         <h2>Effects</h2>
         <dl>
           <dt tabIndex="0" aria-describedby="createEffect-desc"><code>createEffect</code> - run side effect</dt>
-          <dd role="tooltip" id="createEffect-desc">TODO</dd>
+          <dd role="tooltip" id="createEffect-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/latest/api#createeffect">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="createDeferred-desc"><code>createDeferred</code> - defer signal when idle</dt>
-          <dd role="tooltip" id="createDeferred-desc">TODO</dd>
+          <dd role="tooltip" id="createDeferred-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/latest/api#createdeferred">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="createComputed-desc"><code>createComputed</code> - effect immediately before render</dt>
-          <dd role="tooltip" id="createComputed-desc">TODO</dd>
+          <dd role="tooltip" id="createComputed-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/latest/api#createcomputed">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="createRenderEffect-desc"><code>createRenderEffect</code> - effect during rendering</dt>
-          <dd role="tooltip" id="createRenderEffect-desc">TODO</dd>
+          <dd role="tooltip" id="createRenderEffect-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/latest/api#createrendereffect">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="createSelector-desc"><code>createSelector</code> - signal only when selected</dt>
-          <dd role="tooltip" id="createSelector-desc">TODO</dd>
+          <dd role="tooltip" id="createSelector-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/latest/api#createselector">Docs</a>
+          </dd>
         </dl>
       </section>
       <section>
@@ -174,7 +209,7 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
           <dd role="tooltip" id="attr-desc">TODO</dd>
           <dt tabIndex="0" aria-describedby="once-desc"><code>/*@once*/</code> - untrack for properties</dt>
           <dd role="tooltip" id="once-desc">
-            <pre><code>&lt;Component prop=&#123;/*@once*/prop.foo&#125; /&gt;</code></pre>
+            <pre><code>&lt;<span class="func">Component</span> <span class="key">prop</span>=&#123;<span class="comment">/*@once*/</span><span class="var">prop</span>.<span class="key">foo</span>&#125; /&gt;</code></pre>
             Will make sure <code>prop.foo</code> will not be tracked
           </dd>
         </dl>
