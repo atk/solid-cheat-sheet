@@ -100,8 +100,20 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
         <dl>
           <dt tabIndex="0" aria-describedby="createEffect-desc"><code>createEffect</code> - run side effect</dt>
           <dd role="tooltip" id="createEffect-desc">
-            TODO<br/>
+            <pre><code><span class="func">createEffect</span>{'((previous) => {\n  '}<span class="key">return</span> <span class="func">setValue</span>(<span class="func">otherValue</span>{'())\n'}
+&#125;)</code></pre>
+            Runs a reactive side effect initially and then whenever a tracked state changes after rendering.<br/>
             <a href="https://www.solidjs.com/docs/latest/api#createeffect">Docs</a>
+          </dd>
+          <dt tabIndex="0" aria-describedby="onMount-desc"><code>onMount</code> - run side effect on mount</dt>
+          <dd role="tooltip" id="onMount-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/latest/api#onmount">Docs</a>
+          </dd>
+          <dt tabIndex="0" aria-describedby="onCleanup-desc"><code>onCleanup</code> - run side effect on unmount</dt>
+          <dd role="tooltip" id="onCleanup-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/latest/api#oncleanup">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="createDeferred-desc"><code>createDeferred</code> - defer signal when idle</dt>
           <dd role="tooltip" id="createDeferred-desc">
@@ -129,88 +141,176 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
         <h2>Reactive utilities</h2>
         <dl>
           <dt tabIndex="0" aria-describedby="untrack-desc"><code>untrack</code> - reads without tracking updates</dt>
-          <dd role="tooltip" id="untrack-desc">TODO</dd>
+          <dd role="tooltip" id="untrack-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#untrack">Docs</a></dd>
           <dt tabIndex="0" aria-describedby="batch-desc"><code>batch</code> - synchronous updates</dt>
-          <dd role="tooltip" id="batch-desc">TODO</dd>
+          <dd role="tooltip" id="batch-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#batch">Docs</a></dd>
           <dt tabIndex="0" aria-describedby="on-desc"><code>on</code> - tracks updates without reading</dt>
-          <dd role="tooltip" id="on-desc">TODO</dd>
+          <dd role="tooltip" id="on-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#on">Docs</a></dd>
           <dt tabIndex="0" aria-describedby="createRoot-desc"><code>createRoot</code> - creates tracking context</dt>
-          <dd role="tooltip" id="createRoot-desc">TODO</dd>
+          <dd role="tooltip" id="createRoot-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#createroot">Docs</a></dd>
           <dt tabIndex="0" aria-describedby="mergeProps-desc"><code>mergeProps</code> - reactive object merge</dt>
-          <dd role="tooltip" id="mergeProps-desc">TODO</dd>
+          <dd role="tooltip" id="mergeProps-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#mergeprops">Docs</a></dd>
           <dt tabIndex="0" aria-describedby="splitProps-desc"><code>splitProps</code> - reactive object splitting</dt>
-          <dd role="tooltip" id="splitProps-desc">TODO</dd>
+          <dd role="tooltip" id="splitProps-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#splitprops">Docs</a></dd>
           <dt tabIndex="0" aria-describedby="useTransition-desc"><code>useTransition</code> - batch asynchronous updates</dt>
-          <dd role="tooltip" id="useTransition-desc">TODO</dd>
+          <dd role="tooltip" id="useTransition-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#usetransition">Docs</a></dd>
           <dt tabIndex="0" aria-describedby="observable-desc"><code>observable</code> - signal to rxjs observable</dt>
-          <dd role="tooltip" id="observable-desc">TODO</dd>
+          <dd role="tooltip" id="observable-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#observable">Docs</a></dd>
           <dt tabIndex="0" aria-describedby="mapArray-desc"><code>mapArray</code> - reactively maps fixed length array</dt>
-          <dd role="tooltip" id="mapArray-desc">TODO</dd>
+          <dd role="tooltip" id="mapArray-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#maparray">Docs</a></dd>
           <dt tabIndex="0" aria-describedby="indexArray-desc"><code>indexArray</code> - reactively maps varying length array</dt>
-          <dd role="tooltip" id="indexArray-desc">TODO</dd>
+          <dd role="tooltip" id="indexArray-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#indexarray">Docs</a></dd>
         </dl>
       </section>
       <section>
         <h2>Component APIs</h2>
         <dl>
           <dt tabIndex="0" aria-describedby="createContext-desc"><code>createContext</code> - state bound to component tree</dt>
-          <dd role="tooltip" id="createContext-desc">TODO</dd>
+          <dd role="tooltip" id="createContext-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#createcontext">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="useContext-desc"><code>useContext</code> - use bound state</dt>
-          <dd role="tooltip" id="useContext-desc">TODO</dd>
+          <dd role="tooltip" id="useContext-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#usecontext">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="children-desc"><code>children</code> - reactively unwrap children</dt>
-          <dd role="tooltip" id="children-desc">TODO</dd>
+          <dd role="tooltip" id="children-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#children">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="lazy-desc"><code>lazy</code> - component from promise</dt>
-          <dd role="tooltip" id="lazy-desc">TODO</dd>
+          <dd role="tooltip" id="lazy-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#lazy">Docs</a>
+          </dd>
         </dl>
       </section>
       <section>
         <h2>Rendering</h2>
         <dl>
           <dt tabIndex="0" aria-describedby="render-desc"><code>render</code> - applies component to mount point</dt>
-          <dd role="tooltip" id="render-desc">TODO</dd>
+          <dd role="tooltip" id="render-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#render">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="hydrate-desc"><code>hydrate</code> - render, but with hydration</dt>
-          <dd role="tooltip" id="hydrate-desc">TODO</dd>
+          <dd role="tooltip" id="hydrate-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#hydrate">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="renderToString-desc"><code>renderToString</code> - html string from component</dt>
-          <dd role="tooltip" id="renderToString-desc">TODO</dd>
+          <dd role="tooltip" id="renderToString-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#rendertostring">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="renderToStringAsync-desc"><code>renderToStringAsync</code> - async renderToString</dt>
-          <dd role="tooltip" id="renderToStringAsync-desc">TODO</dd>
+          <dd role="tooltip" id="renderToStringAsync-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#rendertostringasync">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="pipeToNodeWritable-desc"><code>pipeToNodeWritable</code> - render to node stream</dt>
-          <dd role="tooltip" id="pipeToNodeWritable-desc">TODO</dd>
+          <dd role="tooltip" id="pipeToNodeWritable-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#pipetonodewritable">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="pipeToWritable-desc"><code>pipeToWritable</code> - render to web stream</dt>
-          <dd role="tooltip" id="pipeToWritable-desc">TODO</dd>
+          <dd role="tooltip" id="pipeToWritable-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#pipetowritable">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="isServer-desc"><code>isServer</code> - true if run in ssr mode</dt>
-          <dd role="tooltip" id="isServer-desc">TODO</dd>
+          <dd role="tooltip" id="isServer-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#isserver">Docs</a>
+          </dd>
         </dl>
       </section>
       <section>
         <h2>&lt;JSX prop=&#123;value&#125;</h2>
         <dl>
           <dt tabIndex="0" aria-describedby="ref-desc"><code>ref</code> - access DOM element</dt>
-          <dd role="tooltip" id="ref-desc">TODO</dd>
+          <dd role="tooltip" id="ref-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#ref">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="classList-desc"><code>classList</code> - class names from object</dt>
-          <dd role="tooltip" id="classList-desc">TODO</dd>
+          <dd role="tooltip" id="classList-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#classlist">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="style-desc"><code>style</code> - inline styles (string or object)</dt>
-          <dd role="tooltip" id="style-desc">TODO</dd>
+          <dd role="tooltip" id="style-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#style">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="innerHTML-desc"><code>innerHTML</code> - directly inject HTML</dt>
-          <dd role="tooltip" id="innerHTML-desc">TODO</dd>
+          <dd role="tooltip" id="innerHTML-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#innerhtml">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="textContent-desc"><code>textContent</code> - directly inject Text</dt>
-          <dd role="tooltip" id="textContent-desc">TODO</dd>
-          <dt tabIndex="0" aria-describedby="on-desc"><code>on[event]</code> - delegated dom events</dt>
-          <dd role="tooltip" id="on-desc">TODO</dd>
-          <dt tabIndex="0" aria-describedby="ondirect-desc"><code>on:[event]</code> - direct dom events</dt>
-          <dd role="tooltip" id="ondirect-desc">TODO</dd>
+          <dd role="tooltip" id="textContent-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#textcontent">Docs</a>
+          </dd>
+          <dt tabIndex="0" aria-describedby="on__-desc"><code>on[event]</code> - delegated dom events</dt>
+          <dd role="tooltip" id="on__-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#on__">Docs</a>
+          </dd>
+          <dt tabIndex="0" aria-describedby="on_event-desc"><code>on:[event]</code> - direct dom events</dt>
+          <dd role="tooltip" id="on_event-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#on%3A___%2Foncapture%3A___">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="oncapture-desc"><code>oncapture:[event]</code> - capturing dom events</dt>
-          <dd role="tooltip" id="oncapture-desc">TODO</dd>
+          <dd role="tooltip" id="oncapture-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#on%3A___%2Foncapture%3A___">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="use-desc"><code>use:[directive]</code> - use custom directive</dt>
-          <dd role="tooltip" id="use-desc">TODO</dd>
+          <dd role="tooltip" id="use-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#use%3A___">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="prop-desc"><code>prop:[property]</code> - direct dom property access</dt>
-          <dd role="tooltip" id="prop-desc">TODO</dd>
-          <dt tabIndex="0" aria-describedby="attr-desc"><code>attr:[attribute]</code> - direct dom attribute access</dt>
-          <dd role="tooltip" id="attr-desc">TODO</dd>
+          <dd role="tooltip" id="prop-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#prop%3A___">Docs</a>
+          </dd>
+          <dt tabIndex="0" aria-describedby="attr-desc"><code>attr:[attribute]</code> - direct dom attribute 
+          access</dt>
+          <dd role="tooltip" id="attr-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#attr%3A___">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="once-desc"><code>/*@once*/</code> - untrack for properties</dt>
           <dd role="tooltip" id="once-desc">
             <pre><code>&lt;<span class="func">Component</span> <span class="key">prop</span>=&#123;<span class="comment">/*@once*/</span><span class="var">prop</span>.<span class="key">foo</span>&#125; /&gt;</code></pre>
-            Will make sure <code>prop.foo</code> will not be tracked
+            Will make sure <code>prop.foo</code> will not be tracked<br/>
+            <a href="https://www.solidjs.com/docs/latest/api#%2F*-%40once-*%2F">Docs</a>
           </dd>
         </dl>
         <h2>/&gt;&#123;props.children&#125;&lt;/JSX&gt;</h2>
@@ -219,23 +319,50 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
         <h2>JSX Control Flow</h2>
         <dl>
           <dt tabIndex="0" aria-describedby="Show-desc"><code>&lt;Show&gt;</code> - conditionally show content</dt>
-          <dd role="tooltip" id="Show-desc">TODO</dd>
+          <dd role="tooltip" id="Show-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#<show>">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="For-desc"><code>&lt;For&gt;</code> - map fixed length array</dt>
-          <dd role="tooltip" id="For-desc">TODO</dd>
+          <dd role="tooltip" id="For-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#<for>">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="Index-desc"><code>&lt;Index&gt;</code> - map varying length array</dt>
-          <dd role="tooltip" id="Index-desc">TODO</dd>
+          <dd role="tooltip" id="Index-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#<index>">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="Switch-desc"><code>&lt;Switch&gt;/&lt;Match&gt;</code> - multiple conditions</dt>
-          <dd role="tooltip" id="Switch-desc">TODO</dd>
+          <dd role="tooltip" id="Switch-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#<switch>%2F<match>">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="Dynamic-desc"><code>&lt;Dynamic&gt;</code> - variable component</dt>
-          <dd role="tooltip" id="Dynamic-desc">TODO</dd>
+          <dd role="tooltip" id="Dynamic-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#<dynamic>">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="Portal-desc"><code>&lt;Portal&gt;</code> - render elsewhere</dt>
-          <dd role="tooltip" id="Portal-desc">TODO</dd>
+          <dd role="tooltip" id="Portal-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#<portal>">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="ErrorBoundary-desc"><code>&lt;ErrorBoundary&gt;</code> - map fixed length array</dt>
-          <dd role="tooltip" id="ErrorBoundary-desc">TODO</dd>
+          <dd role="tooltip" id="ErrorBoundary-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#<errorboundary>">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="Suspense-desc"><code>&lt;Suspense&gt;</code> - fallback for async state</dt>
-          <dd role="tooltip" id="Suspense-desc">TODO</dd>
+          <dd role="tooltip" id="Suspense-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#<suspense>">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="SuspenseList-desc"><code>&lt;<em>SuspenseList</em>&gt;</code> - organize async fallback</dt>
-          <dd role="tooltip" id="SuspenseList-desc">TODO</dd>
+          <dd role="tooltip" id="SuspenseList-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#<suspenselist>">Docs</a>
+          </dd>
         </dl>
       </section>
     </main>
