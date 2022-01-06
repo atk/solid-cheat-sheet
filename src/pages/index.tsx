@@ -7,9 +7,9 @@ import { isServer } from "solid-js/web";
 export default function Home() {
   if (!isServer) {
     const handler = () => {
-      const midHeight = window.innerHeight >> 1;
-      const midWidth = window.innerWidth >> 1;
-      const tooltips = Array.from(document.querySelectorAll('[role="tooltip"]'));
+      const midHeight = globalThis.window.innerHeight >> 1;
+      const midWidth = globalThis.window.innerWidth >> 1;
+      const tooltips = Array.from(globalThis.document.querySelectorAll('[role="tooltip"]'));
       tooltips.forEach((tooltip) => {
         const opener = tooltip.previousSibling as HTMLDataElement;
         if (opener) {
@@ -107,12 +107,14 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
           </dd>
           <dt tabIndex="0" aria-describedby="onMount-desc"><code>onMount</code> - run side effect on mount</dt>
           <dd role="tooltip" id="onMount-desc">
-            TODO<br/>
+            <pre><code><span class="func">onMount</span>{'(() => '}<span class="var">ref</span>.<span class="func">setAttribute</span>(<span class="func">value</span>{'()))'}</code></pre>
+            Runs a side effect only on mount, regardless of signals used, like an untracked createEffect.<br/>
             <a href="https://www.solidjs.com/docs/latest/api#onmount">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="onCleanup-desc"><code>onCleanup</code> - run side effect on unmount</dt>
           <dd role="tooltip" id="onCleanup-desc">
-            TODO<br/>
+            <pre><code><span class="func">onCleanup</span>{'(() => '}<span class="var">connection</span>.<span class="func">close</span>())</code></pre>
+            Runs a side effect on unmount (or <code><span class="func">dispose</span>()</code> call of a reactive root created through <code><span class="func">createRoot</span>()</code>).<br/>
             <a href="https://www.solidjs.com/docs/latest/api#oncleanup">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="createDeferred-desc"><code>createDeferred</code> - defer signal when idle</dt>
