@@ -1,12 +1,11 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { font: calc(0.75em + 1vmin) sans-serif; }
+html { font: calc(0.7em + 0.85vmin) sans-serif; line-height: 1.5 }
 h1 { font-weight: 500; }
 code { letter-spacing: -0.025rem; }
 main { display: flex; flex-direction: column; flex-wrap: wrap; padding-top: 4rem; max-height: 100vh; }
 h1 { position: absolute; top: 0rem; line-height: 4rem; left: 1rem; }
-section { padding: 1rem; line-height: 1.5; }
+section { padding: 0.5rem 1rem; line-height: 1.65; }
 h2 { font-size: inherit; }
-h2:only-of-type { border-bottom: 0.025rem solid #333333; }
 h2:not(:only-of-type) + dl { padding-left: 0.65rem; }
 dl { list-style: none; position: relative; }
 dl dd {

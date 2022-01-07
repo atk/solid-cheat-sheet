@@ -88,6 +88,11 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
             Diffs store with another immutable version, e.g. from a large API response<br/>
             <a href="https://www.solidjs.com/docs/latest/api#reconcile">Docs</a>
           </dd>
+          <dt tabIndex="0" aria-describedby="unwrap-desc"><code>unwrap</code> - returns data without the store</dt>
+          <dd role="tooltip" id="unwrap-desc">
+            Gets the data out of a store so it is no longer reactive or connected to the setter.<br/>
+            <a href="https://www.solidjs.com/docs/latest/api#unwrap">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="createMutable-desc"><code>createMutable</code> - store with setters</dt>
           <dd role="tooltip" id="createMutable-desc">
             Wraps a store into a proxy with reactive setters, so you can use it like in <a href="https://mobx.js.org">MobX</a>/<a href="https://vuejs.org/">Vue</a>.<br/>
@@ -117,20 +122,31 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
             Runs a side effect on unmount (or <code><span class="func">dispose</span>()</code> call of a reactive root created through <code><span class="func">createRoot</span>()</code>).<br/>
             <a href="https://www.solidjs.com/docs/latest/api#oncleanup">Docs</a>
           </dd>
+          <dt tabIndex="0" aria-describedby="onError-desc"><code>onError</code> - run side effect on error</dt>
+          <dd role="tooltip" id="onError-desc">
+            <pre><code><span class="func">onError</span>{'(() => '}<span class="var">connection</span>.<span class="func">retry</span>())</code></pre>
+            Runs a side effect on any error thrown within the reactive root.<br/>
+            <a href="https://www.solidjs.com/docs/latest/api#onerror">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="createDeferred-desc"><code>createDeferred</code> - defer signal when idle</dt>
           <dd role="tooltip" id="createDeferred-desc">
-            TODO<br/>
+            Creates a new signal from an input signal that is deferred until all other side effects are run or an optional timeout is reached.<br/>
             <a href="https://www.solidjs.com/docs/latest/api#createdeferred">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="createComputed-desc"><code>createComputed</code> - effect immediately before render</dt>
           <dd role="tooltip" id="createComputed-desc">
-            TODO<br/>
+            Runs a side effect like <code><span class="func">createEffect</span>()</code>, but before instead of after rendering.<br/>
             <a href="https://www.solidjs.com/docs/latest/api#createcomputed">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="createRenderEffect-desc"><code>createRenderEffect</code> - effect during rendering</dt>
           <dd role="tooltip" id="createRenderEffect-desc">
             TODO<br/>
             <a href="https://www.solidjs.com/docs/latest/api#createrendereffect">Docs</a>
+          </dd>
+          <dt tabIndex="0" aria-describedby="createReaction-desc"><code>createReaction</code> - effect with external tracking</dt>
+          <dd role="tooltip" id="createReaction-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/latest/api#createreaction">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="createSelector-desc"><code>createSelector</code> - signal only when selected</dt>
           <dd role="tooltip" id="createSelector-desc">
@@ -140,48 +156,88 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
         </dl>
       </section>
       <section>
-        <h2>Reactive utilities</h2>
+        <h2>Reactive Tracking</h2>
         <dl>
           <dt tabIndex="0" aria-describedby="untrack-desc"><code>untrack</code> - reads without tracking updates</dt>
           <dd role="tooltip" id="untrack-desc">
             TODO<br/>
-            <a href="https://www.solidjs.com/docs/api#untrack">Docs</a></dd>
+            <a href="https://www.solidjs.com/docs/api#untrack">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="batch-desc"><code>batch</code> - synchronous updates</dt>
           <dd role="tooltip" id="batch-desc">
             TODO<br/>
-            <a href="https://www.solidjs.com/docs/api#batch">Docs</a></dd>
-          <dt tabIndex="0" aria-describedby="on-desc"><code>on</code> - tracks updates without reading</dt>
+            <a href="https://www.solidjs.com/docs/api#batch">Docs</a>
+          </dd>
+          <dt tabIndex="0" aria-describedby="on-desc"><code>on</code> - explicitly tracks updates</dt>
           <dd role="tooltip" id="on-desc">
             TODO<br/>
-            <a href="https://www.solidjs.com/docs/api#on">Docs</a></dd>
-          <dt tabIndex="0" aria-describedby="createRoot-desc"><code>createRoot</code> - creates tracking context</dt>
-          <dd role="tooltip" id="createRoot-desc">
-            TODO<br/>
-            <a href="https://www.solidjs.com/docs/api#createroot">Docs</a></dd>
-          <dt tabIndex="0" aria-describedby="mergeProps-desc"><code>mergeProps</code> - reactive object merge</dt>
-          <dd role="tooltip" id="mergeProps-desc">
-            TODO<br/>
-            <a href="https://www.solidjs.com/docs/api#mergeprops">Docs</a></dd>
-          <dt tabIndex="0" aria-describedby="splitProps-desc"><code>splitProps</code> - reactive object splitting</dt>
-          <dd role="tooltip" id="splitProps-desc">
-            TODO<br/>
-            <a href="https://www.solidjs.com/docs/api#splitprops">Docs</a></dd>
+            <a href="https://www.solidjs.com/docs/api#on">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="useTransition-desc"><code>useTransition</code> - batch asynchronous updates</dt>
           <dd role="tooltip" id="useTransition-desc">
             TODO<br/>
-            <a href="https://www.solidjs.com/docs/api#usetransition">Docs</a></dd>
+            <a href="https://www.solidjs.com/docs/api#usetransition">Docs</a>
+          </dd>
+          <dt tabIndex="0" aria-describedby="startTransition-desc"><code>startTransition</code> - batch asynchronous updates</dt>
+          <dd role="tooltip" id="startTransition-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#starttransition">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="observable-desc"><code>observable</code> - signal to rxjs observable</dt>
           <dd role="tooltip" id="observable-desc">
             TODO<br/>
-            <a href="https://www.solidjs.com/docs/api#observable">Docs</a></dd>
+            <a href="https://www.solidjs.com/docs/api#observable">Docs</a>
+          </dd>
+          <dt tabIndex="0" aria-describedby="from-desc"><code>from</code> - rxjs observable to signal</dt>
+          <dd role="tooltip" id="from-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#from">Docs</a>
+          </dd>
+        </dl>
+      </section>
+      <section>
+        <h2>Reactive scope</h2>
+        <dl>
+          <dt tabIndex="0" aria-describedby="createRoot-desc"><code>createRoot</code> - creates tracking context</dt>
+          <dd role="tooltip" id="createRoot-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#createroot">Docs</a>
+          </dd>
+          <dt tabIndex="0" aria-describedby="getOwner-desc"><code>getOwner</code> - get the current tracking context</dt>
+          <dd role="tooltip" id="getOwner-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#getowner">Docs</a>
+          </dd>
+          <dt tabIndex="0" aria-describedby="runWithOwner-desc"><code>runWithOwner</code> - runs in tracking context</dt>
+          <dd role="tooltip" id="runWithOwner-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#runwithowner">Docs</a>
+          </dd>          
+        </dl>
+      </section>
+      <section>
+        <h2>Reactive Data</h2>
+        <dl>          
+          <dt tabIndex="0" aria-describedby="mergeProps-desc"><code>mergeProps</code> - reactive object merge</dt>
+          <dd role="tooltip" id="mergeProps-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#mergeprops">Docs</a>
+          </dd>
+          <dt tabIndex="0" aria-describedby="splitProps-desc"><code>splitProps</code> - reactive object splitting</dt>
+          <dd role="tooltip" id="splitProps-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#splitprops">Docs</a>
+          </dd>          
           <dt tabIndex="0" aria-describedby="mapArray-desc"><code>mapArray</code> - reactively maps fixed length array</dt>
           <dd role="tooltip" id="mapArray-desc">
             TODO<br/>
-            <a href="https://www.solidjs.com/docs/api#maparray">Docs</a></dd>
+            <a href="https://www.solidjs.com/docs/api#maparray">Docs</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="indexArray-desc"><code>indexArray</code> - reactively maps varying length array</dt>
           <dd role="tooltip" id="indexArray-desc">
             TODO<br/>
-            <a href="https://www.solidjs.com/docs/api#indexarray">Docs</a></dd>
+            <a href="https://www.solidjs.com/docs/api#indexarray">Docs</a>
+          </dd>
         </dl>
       </section>
       <section>
@@ -206,6 +262,11 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
           <dd role="tooltip" id="lazy-desc">
             TODO<br/>
             <a href="https://www.solidjs.com/docs/api#lazy">Docs</a>
+          </dd>
+          <dt tabIndex="0" aria-describedby="createUniqueId-desc"><code>createUniqueId</code> - unique ID for components</dt>
+          <dd role="tooltip" id="createUniqueId-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#createuniqueid">Docs</a>
           </dd>
         </dl>
       </section>
@@ -232,20 +293,20 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
             TODO<br/>
             <a href="https://www.solidjs.com/docs/api#rendertostringasync">Docs</a>
           </dd>
-          <dt tabIndex="0" aria-describedby="pipeToNodeWritable-desc"><code>pipeToNodeWritable</code> - render to node stream</dt>
-          <dd role="tooltip" id="pipeToNodeWritable-desc">
+          <dt tabIndex="0" aria-describedby="renderToStream-desc"><code>renderToStream</code> - render to (node/web) stream</dt>
+          <dd role="tooltip" id="renderToStream-desc">
             TODO<br/>
-            <a href="https://www.solidjs.com/docs/api#pipetonodewritable">Docs</a>
-          </dd>
-          <dt tabIndex="0" aria-describedby="pipeToWritable-desc"><code>pipeToWritable</code> - render to web stream</dt>
-          <dd role="tooltip" id="pipeToWritable-desc">
-            TODO<br/>
-            <a href="https://www.solidjs.com/docs/api#pipetowritable">Docs</a>
+            <a href="https://www.solidjs.com/docs/api#rendertostream">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="isServer-desc"><code>isServer</code> - true if run in ssr mode</dt>
           <dd role="tooltip" id="isServer-desc">
             TODO<br/>
             <a href="https://www.solidjs.com/docs/api#isserver">Docs</a>
+          </dd>
+          <dt tabIndex="0" aria-describedby="generateHydrationScript-desc"><code>generateHydrationScript</code> - hydrate SSR components</dt>
+          <dd role="tooltip" id="generateHydrationScript-desc">
+            TODO<br/>
+            <a href="https://www.solidjs.com/docs/api#generatehydrationscript">Docs</a>
           </dd>
         </dl>
       </section>
