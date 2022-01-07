@@ -140,12 +140,14 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
           </dd>
           <dt tabIndex="0" aria-describedby="createRenderEffect-desc"><code>createRenderEffect</code> - effect during rendering</dt>
           <dd role="tooltip" id="createRenderEffect-desc">
-            TODO<br/>
+            Like <code><span class="func">createEffect</span>()</code>, but is called while rendering.<br/>
             <a href="https://www.solidjs.com/docs/latest/api#createrendereffect">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="createReaction-desc"><code>createReaction</code> - effect with external tracking</dt>
           <dd role="tooltip" id="createReaction-desc">
-            TODO<br/>
+            <pre><code><span class="key">const </span><span class="var">track</span> = <span class="func">createReaction</span>{'(() => { ... })\n'}
+            <span class="func">track</span>(() =&gt; <span class="func">signal</span>())</code></pre>
+            Creates an effect that has an external tracking part.<br/>
             <a href="https://www.solidjs.com/docs/latest/api#createreaction">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="createSelector-desc"><code>createSelector</code> - signal only when selected</dt>
