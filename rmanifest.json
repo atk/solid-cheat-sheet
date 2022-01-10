@@ -1,0 +1,18 @@
+{
+  "/": [
+    {
+      "type": "script",
+      "href": "/assets/index.84684377.js"
+    },
+    {
+      "type": "script",
+      "href": "/assets/client.7863a12a.js"
+    }
+  ],
+  "*": [
+    {
+      "type": "script",
+      "href": "/assets/client.7863a12a.js"
+    }
+  ]
+}
