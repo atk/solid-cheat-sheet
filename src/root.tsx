@@ -1,7 +1,7 @@
 // @refresh reload
 import { Links, Meta, Outlet, Scripts } from "solid-start/components";
 
-export default function Root({ Start }) {
+export default function Root() {
   return (
     <html lang="en">
       <head>
@@ -17,4 +17,3 @@ export default function Root({ Start }) {
     </html>
   );
 }
-

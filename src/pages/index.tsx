@@ -152,7 +152,8 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
           </dd>
           <dt tabIndex="0" aria-describedby="createSelector-desc"><code>createSelector</code> - signal only when selected</dt>
           <dd role="tooltip" id="createSelector-desc">
-            TODO<br/>
+            <pre><code><span class="keyword">const </span><span class="var">isSelected</span> = <span class="func">createSelector</span>(<span class="var">selectedId</span>)</code></pre>
+            Creates a conditional signal that only notifies subscribers when entering or exiting their key matching the value.<br/>
             <a href="https://www.solidjs.com/docs/latest/api#createselector">Docs</a>
           </dd>
         </dl>
@@ -162,12 +163,14 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
         <dl>
           <dt tabIndex="0" aria-describedby="untrack-desc"><code>untrack</code> - reads without tracking updates</dt>
           <dd role="tooltip" id="untrack-desc">
-            TODO<br/>
+            <pre><code><span class="func">createEffect</span>(() =&gt; <span class="var">console</span>.<span class="func">log</span>(<span class="func">untrack</span>(<span class="func">a</span>()))</code></pre>
+            Reads the signal <code><span class="func">a</span>()</code> without the effect being subscribed to changes, while still tracking everything else.<br/>
             <a href="https://www.solidjs.com/docs/api#untrack">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="batch-desc"><code>batch</code> - synchronous updates</dt>
           <dd role="tooltip" id="batch-desc">
-            TODO<br/>
+            <pre><code><span class="func">createEffect</span>(() =&gt; <span class="func">batch</span>(() =&gt;<span class="func">setB</span>(<span class="func">setA</span>(<span class="var">value</span>))))</code></pre>
+            Without <code><span class="func">batch</span>()</code>, the signal <code><span class="func">a</span>()</code> would have been updated and only then the signal <code><span class="func">b</span>()</code>, but using it ensures, that the notification of tracking effects are deferred until both are ready<br/>
             <a href="https://www.solidjs.com/docs/api#batch">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="on-desc"><code>on</code> - explicitly tracks updates</dt>
