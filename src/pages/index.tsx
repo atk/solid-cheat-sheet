@@ -175,7 +175,8 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
           </dd>
           <dt tabIndex="0" aria-describedby="on-desc"><code>on</code> - explicitly tracks updates</dt>
           <dd role="tooltip" id="on-desc">
-            TODO<br/>
+            <pre><code><span class="func">createEffect</span>(<span class="func">on</span>(<span class="func">a</span>, (<span class="var">a</span>) =&gt; <span class="var">console</span>.<span class="func">log</span>(<span class="var">a</span>, <span class="func">b</span>()))</code></pre>
+            The first argument is either an array of signal accessors or a single signal accessor to be tracked, the second is a function that receives the value(s) of these tracked signals and won't track any signal inside. It's basically the opposite of <code><span class="func">untrack</span>()</code>.<br/>
             <a href="https://www.solidjs.com/docs/api#on">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="useTransition-desc"><code>useTransition</code> - batch asynchronous updates</dt>
@@ -185,12 +186,13 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
           </dd>
           <dt tabIndex="0" aria-describedby="startTransition-desc"><code>startTransition</code> - batch asynchronous updates</dt>
           <dd role="tooltip" id="startTransition-desc">
-            TODO<br/>
+            Convenience shorthand for <code><span class="func">useTransition</span>()[<span class="lit">1</span>](...)</code> to directly start the transition without checking if it is pending.<br/>
             <a href="https://www.solidjs.com/docs/api#starttransition">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="observable-desc"><code>observable</code> - signal to rxjs observable</dt>
           <dd role="tooltip" id="observable-desc">
-            TODO<br/>
+            <pre><code><span class="key">import &#123; </span><span class="var">from</span> &#125; <span class="key">from </span><span class="lit">"rxjs"</span>{'\n'}<span class="key">const</span> [<span class="var">value</span>, <span class="var">setValue</span>] = <span class="func">createSignal</span>(<span class="lit">0</span>{')\n'}<span class="func">from</span>(<span class="func">observable</span>(<span class="func">value</span>)).<span class="func">subscribe</span>(...)</code></pre>
+            Creates an observable from a signal to be consumed by any observable library like rxjs.<br/>
             <a href="https://www.solidjs.com/docs/api#observable">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="from-desc"><code>from</code> - rxjs observable to signal</dt>
