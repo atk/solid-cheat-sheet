@@ -197,7 +197,8 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
           </dd>
           <dt tabIndex="0" aria-describedby="from-desc"><code>from</code> - rxjs observable to signal</dt>
           <dd role="tooltip" id="from-desc">
-            TODO<br/>
+            <pre><code><span class="key">const</span> [<span class="var">value</span>, <span class="var">setValue</span>] = <span class="func">from</span>(<span class="var">observable$</span>{')\n'}<span class="func">from</span>(<span class="func">observable</span>(<span class="func">value</span>))</code></pre>
+            Creates a reactive signal from rxjs type observables (anything with a subscribe method) or svelte store, only subscribing if the signal is tracked and unsubscribing when its tracking scope is disposed.<br/>
             <a href="https://www.solidjs.com/docs/api#from">Docs</a>
           </dd>
         </dl>
@@ -207,17 +208,21 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
         <dl>
           <dt tabIndex="0" aria-describedby="createRoot-desc"><code>createRoot</code> - creates tracking context</dt>
           <dd role="tooltip" id="createRoot-desc">
-            TODO<br/>
+            <pre><code><span class="key">const </span><span class="var">dispose</span> = <span class="func">createRoot</span>((<span class="var">dispose</span>{') => {\n  '}<span class="func">createEffect</span>{'(...)\n  '}<span class="key">return </span><span class="var">dispose</span>{'\n})'}</code></pre>
+            Creates a reactive scope that can manually unsubscribe all effects through its dispose handler and will return the return value of the scope. Effects will not be able to track signals and stores.<br/><br/>
+            Functions like <code><span class="func">render</span>()</code> automatically create their reactive scope, but you can still use <code><span class="func">createRoot</span>()</code> inside it to gain manual disposal for your reactive effects.<br/>
             <a href="https://www.solidjs.com/docs/api#createroot">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="getOwner-desc"><code>getOwner</code> - get the current tracking context</dt>
           <dd role="tooltip" id="getOwner-desc">
-            TODO<br/>
+            <pre><code><span class="key">const </span><span class="var">scope</span> = <span class="func">getOwner</span>{'()\n'}<span class="key">return </span>&lt;<span class="lit">div</span> <span class="var">onClick</span>{'={('}<span class="var">ev</span>{') =>\n  '}<span class="func">runWithOwner</span>(<span class="var">scope</span>{', () => '}<span class="var">props</span>.<span class="var">onClick</span>(<span class="var">ev</span>{'))}\n/>'}</code></pre>
+            Gets the reactive scope that tracks effects either in order to test its existence or to run effects inside it outside of the current function (e.g. in timeouts or events) by using <code><span class="func">runWithOwner</span>()</code>.<br/>
             <a href="https://www.solidjs.com/docs/api#getowner">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="runWithOwner-desc"><code>runWithOwner</code> - runs in tracking context</dt>
           <dd role="tooltip" id="runWithOwner-desc">
-            TODO<br/>
+            <pre><code><span class="key">const </span><span class="var">scope</span> = <span class="func">getOwner</span>{'()\n'}<span class="key">return </span>&lt;<span class="lit">div</span> <span class="var">onClick</span>{'={('}<span class="var">ev</span>{') =>\n  '}<span class="func">runWithOwner</span>(<span class="var">scope</span>{', () => '}<span class="var">props</span>.<span class="var">onClick</span>(<span class="var">ev</span>{'))}\n/>'}</code></pre>
+            Runs a callback inside the scope of a reactive root obtained through <code><span class="func">getOwner</span>()</code>, for example to run it inside a timeout or event.<br/>
             <a href="https://www.solidjs.com/docs/api#runwithowner">Docs</a>
           </dd>          
         </dl>
