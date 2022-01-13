@@ -232,22 +232,24 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
         <dl>          
           <dt tabIndex="0" aria-describedby="mergeProps-desc"><code>mergeProps</code> - reactive object merge</dt>
           <dd role="tooltip" id="mergeProps-desc">
-            TODO<br/>
+            <pre><code><span class="key">const </span><span class="var">p</span> = <span class="func">mergeProps</span>(<span class="var">defaults</span>, <span class="var">props</span>)</code></pre>
+            Merges all reactive objects together, retaining their reactivity (you can add as many objects as you like).<br/>
             <a href="https://www.solidjs.com/docs/api#mergeprops">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="splitProps-desc"><code>splitProps</code> - reactive object splitting</dt>
           <dd role="tooltip" id="splitProps-desc">
-            TODO<br/>
+            <pre><code><span class="key">const</span> [<span class="var">local</span>, <span class="var">child</span>] = <span class="func">splitProps</span>(<span class="var">props</span>, [<span class="lit">"children"</span>{'])\n<'}<span class="func">div</span> &#123;...<span class="var">child</span>{'}>{'}<span class="var">local</span>.<span class="var">children</span>{'}</'}<span class="func">div</span>{'>'}</code></pre>
+            Splits a reactive object into multiple objects while retaining the reactivity of the properties.<br/>
             <a href="https://www.solidjs.com/docs/api#splitprops">Docs</a>
           </dd>          
           <dt tabIndex="0" aria-describedby="mapArray-desc"><code>mapArray</code> - reactively maps fixed length array</dt>
           <dd role="tooltip" id="mapArray-desc">
-            TODO<br/>
+            maps a reactive array, retaining the reactive properties of the indices; items are cached by reference, while the index argument is a signal. The map function itself is not tracking. Is used by the <code>&lt;<span class="func">For</span>&gt;</code> flow control.<br/>
             <a href="https://www.solidjs.com/docs/api#maparray">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="indexArray-desc"><code>indexArray</code> - reactively maps varying length array</dt>
           <dd role="tooltip" id="indexArray-desc">
-            TODO<br/>
+            maps a reactive array, retaining the reactive properties of the items; otherwise similar to <code><span class="func">mapArray</span></code>. Is used by the <code>&lt;<span class="func">Index</span>&gt;</code> flow control.<br/>
             <a href="https://www.solidjs.com/docs/api#indexarray">Docs</a>
           </dd>
         </dl>
