@@ -259,12 +259,20 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
         <dl>
           <dt tabIndex="0" aria-describedby="createContext-desc"><code>createContext</code> - state bound to component tree</dt>
           <dd role="tooltip" id="createContext-desc">
-            TODO<br/>
+            <pre><code><span class="key">const </span><span class="var">context</span> = <span class="func">createContext</span>(<span class="var">defaultValue</span>{')\n'}
+            <span class="key">const </span><span class="var">Consumer</span> = (<span class="var">props</span>{') => {\n'}
+            <span class="key">  const </span><span class="var">contextValue</span> = <span class="func">useContext</span>(<span class="var">context</span>{')\n'}
+            {'}\n<'}<span class="func">context</span>.<span class="func">Provider</span>{'><'}<span class="func">Consumer</span>{' /></'}<span class="func">context</span>.<span class="func">Provider</span>{'/>'}</code></pre>
+            Creates a context object with a provider component to inject dependencies bound to the view to be used with <code><span class="func">useContext</span>()</code>. The default value is optional.<br/>
             <a href="https://www.solidjs.com/docs/api#createcontext">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="useContext-desc"><code>useContext</code> - use bound state</dt>
           <dd role="tooltip" id="useContext-desc">
-            TODO<br/>
+          <pre><code><span class="key">const </span><span class="var">context</span> = <span class="func">createContext</span>(<span class="var">defaultValue</span>{')\n'}
+            <span class="key">const </span><span class="var">Consumer</span> = (<span class="var">props</span>{') => {\n'}
+            <span class="key">  const </span><span class="var">contextValue</span> = <span class="func">useContext</span>(<span class="var">context</span>{')\n'}
+            {'}\n<'}<span class="func">context</span>.<span class="func">Provider</span>{'><'}<span class="func">Consumer</span>{' /></'}<span class="func">context</span>.<span class="func">Provider</span>{'/>'}</code></pre>
+            Gets the (default) value of the nearest context provider created with <code><span class="func">createContext</span>()</code> from the given context object.<br/>
             <a href="https://www.solidjs.com/docs/api#usecontext">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="children-desc"><code>children</code> - reactively unwrap children</dt>
