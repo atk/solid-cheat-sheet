@@ -268,7 +268,7 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
           </dd>
           <dt tabIndex="0" aria-describedby="useContext-desc"><code>useContext</code> - use bound state</dt>
           <dd role="tooltip" id="useContext-desc">
-          <pre><code><span class="key">const </span><span class="var">context</span> = <span class="func">createContext</span>(<span class="var">defaultValue</span>{')\n'}
+            <pre><code><span class="key">const </span><span class="var">context</span> = <span class="func">createContext</span>(<span class="var">defaultValue</span>{')\n'}
             <span class="key">const </span><span class="var">Consumer</span> = (<span class="var">props</span>{') => {\n'}
             <span class="key">  const </span><span class="var">contextValue</span> = <span class="func">useContext</span>(<span class="var">context</span>{')\n'}
             {'}\n<'}<span class="func">context</span>.<span class="func">Provider</span>{'><'}<span class="func">Consumer</span>{' /></'}<span class="func">context</span>.<span class="func">Provider</span>{'/>'}</code></pre>
@@ -277,17 +277,21 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
           </dd>
           <dt tabIndex="0" aria-describedby="children-desc"><code>children</code> - reactively unwrap children</dt>
           <dd role="tooltip" id="children-desc">
-            TODO<br/>
+            <pre><code><span class="key">const </span><span class="var">childs</span> = <span class="func">children</span>(<span class="var">props</span>.<span class="var">children</span>)</code></pre>
+            Helper that automatically unwraps children that are function elements and memoizes the result in an accessor.<br/>
             <a href="https://www.solidjs.com/docs/api#children">Docs</a>
           </dd>
-          <dt tabIndex="0" aria-describedby="lazy-desc"><code>lazy</code> - component from promise</dt>
+          <dt tabIndex="0" aria-describedby="lazy-desc"><code>lazy</code> - unwrap promise containing component</dt>
           <dd role="tooltip" id="lazy-desc">
-            TODO<br/>
+            <pre><code><span class="key">const </span><span class="var">AsyncComponent</span>{' =\n  '}<span class="func">lazy</span>(<span class="func">import</span>(<span class="lit">'./AsyncComponent'</span>{'))\n'}
+            <span class="key">return</span> &lt;<span class="func">Suspense</span> <span class="var">fallback</span>{'='}<span class="lit">"...Loading"</span>{'>\n  <'}<span class="func">AsyncComponent</span>{' />\n</'}
+            <span class="func">Suspense</span>&gt;</code></pre>
+            Creates a component from a Promise that can be tracked and replaced with a fallback until resolved in <code>&lt;<span class="func">Suspense</span>&gt;</code><br/>
             <a href="https://www.solidjs.com/docs/api#lazy">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="createUniqueId-desc"><code>createUniqueId</code> - unique ID for components</dt>
           <dd role="tooltip" id="createUniqueId-desc">
-            TODO<br/>
+            Creates a unique ID that is stable across server and browser.<br/>
             <a href="https://www.solidjs.com/docs/api#createuniqueid">Docs</a>
           </dd>
         </dl>
