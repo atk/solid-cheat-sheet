@@ -244,12 +244,12 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
           </dd>          
           <dt tabIndex="0" aria-describedby="mapArray-desc"><code>mapArray</code> - reactively maps fixed length array</dt>
           <dd role="tooltip" id="mapArray-desc">
-            maps a reactive array, retaining the reactive properties of the indices; items are cached by reference, while the index argument is a signal. The map function itself is not tracking. Is used by the <code>&lt;<span class="func">For</span>&gt;</code> flow control.<br/>
+            maps a reactive array, retaining the reactive properties of the items; otherwise similar to <code><span class="func">mapArray</span></code>. Is used by the <code>&lt;<span class="func">For</span>&gt;</code> flow control.<br/>
             <a href="https://www.solidjs.com/docs/api#maparray">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="indexArray-desc"><code>indexArray</code> - reactively maps varying length array</dt>
           <dd role="tooltip" id="indexArray-desc">
-            maps a reactive array, retaining the reactive properties of the items; otherwise similar to <code><span class="func">mapArray</span></code>. Is used by the <code>&lt;<span class="func">Index</span>&gt;</code> flow control.<br/>
+            maps a reactive array, retaining the reactive properties of the indices; items are cached by reference, while the index argument is a signal. The map function itself is not tracking. Is used by the <code>&lt;<span class="func">Index</span>&gt;</code> flow control.<br/>
             <a href="https://www.solidjs.com/docs/api#indexarray">Docs</a>
           </dd>
         </dl>
@@ -301,7 +301,7 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
         <dl>
           <dt tabIndex="0" aria-describedby="render-desc"><code>render</code> - applies component to mount point</dt>
           <dd role="tooltip" id="render-desc">
-            TODO<br/>
+            Browser-only method to add a component to a mount point inside its own reactive root.<br/>
             <a href="https://www.solidjs.com/docs/api#render">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="hydrate-desc"><code>hydrate</code> - render, but with hydration</dt>
