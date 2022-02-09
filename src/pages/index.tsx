@@ -304,35 +304,40 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
             Browser-only method to add a component to a mount point inside its own reactive root.<br/>
             <a href="https://www.solidjs.com/docs/api#render">Docs</a>
           </dd>
-          <dt tabIndex="0" aria-describedby="hydrate-desc"><code>hydrate</code> - render, but with hydration</dt>
+          <dt tabIndex="0" aria-describedby="hydrate-desc"><code>hydrate</code> - adds client-side logic to server-rendered html</dt>
           <dd role="tooltip" id="hydrate-desc">
-            TODO<br/>
+            Browser-only method to add client-side logic (e.g. event handlers) to server-rendered code.<br/>
             <a href="https://www.solidjs.com/docs/api#hydrate">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="renderToString-desc"><code>renderToString</code> - html string from component</dt>
           <dd role="tooltip" id="renderToString-desc">
-            TODO<br/>
+            Creates a static HTML string from a component to be sent to the client and be hydrated using <code><span class="func">hydrate</span>()</code>.<br/>
             <a href="https://www.solidjs.com/docs/api#rendertostring">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="renderToStringAsync-desc"><code>renderToStringAsync</code> - async renderToString</dt>
           <dd role="tooltip" id="renderToStringAsync-desc">
-            TODO<br/>
+            Creates a static HTML string from a component to be sent to the client and be hydrated using <code><span class="func">hydrate</span>()</code>, but attempts to resolve all async components and resolve all resources.<br/>
             <a href="https://www.solidjs.com/docs/api#rendertostringasync">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="renderToStream-desc"><code>renderToStream</code> - render to (node/web) stream</dt>
           <dd role="tooltip" id="renderToStream-desc">
-            TODO<br/>
+            Rendering the component asynchronously as string into a stream to be hydrated on the client using <code><span class="func">hydrate</span>()</code>; initial data contains suspense fallback placeholders and everything else will come in once it resolves.<br/>
             <a href="https://www.solidjs.com/docs/api#rendertostream">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="isServer-desc"><code>isServer</code> - true if run in ssr mode</dt>
           <dd role="tooltip" id="isServer-desc">
-            TODO<br/>
+            Is <code><span class="lit">true</span></code> on the server and <code><span class="lit">false</span></code> in the client; helps a lot with tree shaking<br/>
             <a href="https://www.solidjs.com/docs/api#isserver">Docs</a>
           </dd>
-          <dt tabIndex="0" aria-describedby="generateHydrationScript-desc"><code>generateHydrationScript</code> - hydrate SSR components</dt>
+          <dt tabIndex="0" aria-describedby="generateHydrationScript-desc"><code>generateHydrationScript</code> - hydrate SSR components on the server</dt>
           <dd role="tooltip" id="generateHydrationScript-desc">
-            TODO<br/>
-            <a href="https://www.solidjs.com/docs/api#generatehydrationscript">Docs</a>
+            Generates hydration script as string to be used on the server.<br/>
+            <a href="https://www.solidjs.com/docs/api#hydrationscript">Docs</a>
+          </dd>
+          <dt tabIndex="0" aria-describedby="generateHydrationScript-desc"><code>HydrationScript</code> - hydrate SSR components on the client</dt>
+          <dd role="tooltip" id="generateHydrationScript-desc">
+            Generates hydration script as a JSX.Component to be used in the client<br/>
+            <a href="https://www.solidjs.com/docs/api#hydrationscript">Docs</a>
           </dd>
         </dl>
       </section>
@@ -341,12 +346,12 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
         <dl>
           <dt tabIndex="0" aria-describedby="ref-desc"><code>ref</code> - access DOM element</dt>
           <dd role="tooltip" id="ref-desc">
-            TODO<br/>
+            a reference to DOM arrays for intrinsic elements and whatever reference components return (or not).<br/>
             <a href="https://www.solidjs.com/docs/api#ref">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="classList-desc"><code>classList</code> - class names from object</dt>
           <dd role="tooltip" id="classList-desc">
-            TODO<br/>
+            Preferred method of setting and toggling multiple class names using an object with the keys being the class names, and the values being truthy or falsy toggling them. Beware that there might be side effects if using class and classList at the same time.<br/>
             <a href="https://www.solidjs.com/docs/api#classlist">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="style-desc"><code>style</code> - inline styles (string or object)</dt>
