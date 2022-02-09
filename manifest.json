@@ -1,6 +1,6 @@
 {
   "node_modules/solid-start/runtime/entries/client.tsx": {
-    "file": "assets/client.e4a73fdc.js",
+    "file": "assets/client.526c4e11.js",
     "src": "node_modules/solid-start/runtime/entries/client.tsx",
     "isEntry": true,
     "dynamicImports": [
@@ -8,7 +8,7 @@
     ]
   },
   "src/pages/index.tsx": {
-    "file": "assets/index.cb34210e.js",
+    "file": "assets/index.39818e25.js",
     "src": "src/pages/index.tsx",
     "isDynamicEntry": true,
     "imports": [
