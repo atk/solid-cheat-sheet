@@ -1,21 +1,21 @@
 {
-  "node_modules/solid-start/runtime/entries/client.tsx": {
-    "file": "assets/client.526c4e11.js",
-    "src": "node_modules/solid-start/runtime/entries/client.tsx",
+  "src/entry-client.tsx": {
+    "file": "assets/entry-client.9bc84815.js",
+    "src": "src/entry-client.tsx",
     "isEntry": true,
     "dynamicImports": [
-      "src/pages/index.tsx"
+      "src/routes/index.tsx"
     ]
   },
-  "src/pages/index.tsx": {
-    "file": "assets/index.39818e25.js",
-    "src": "src/pages/index.tsx",
+  "src/routes/index.tsx": {
+    "file": "assets/index.6909859e.js",
+    "src": "src/routes/index.tsx",
     "isDynamicEntry": true,
     "imports": [
-      "node_modules/solid-start/runtime/entries/client.tsx"
+      "src/entry-client.tsx"
     ],
     "css": [
-      "assets/index.b58db180.css"
+      "assets/index.b368d75f.css"
     ]
   }
 }
