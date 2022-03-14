@@ -1,6 +1,18 @@
-# Solid Cheat Sheet
+# SolidStart
 
-Interactive Cheat Sheet for Solid.js - fast help while hacking.
+Everything you need to build a Solid project, powered by [`solid-start`](https://github.com/ryansolid/solid-start/tree/master/packages/solid-start);
+
+## Creating a project
+
+```bash
+# create a new project in the current directory
+npm init solid@next
+
+# create a new project in my-app
+npm init solid@next my-app
+```
+
+> Note: the `@next` is temporary
 
 ## Developing
 
