@@ -2,7 +2,7 @@
   "name": "solid-cheat-sheet",
   "scripts": {
     "dev": "solid-start dev",
-    "build": "solid-start build",
+    "build": "solid-start build; sed -i 's/\\/assets/assets/g' dist/index.html",
     "start": "solid-start start"
   },
   "type": "module",
