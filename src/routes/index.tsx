@@ -346,8 +346,14 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
         </dl>
       </section>
       <section>
-        <h2>&lt;JSX prop=&#123;value&#125;</h2>
         <dl>
+          <dt tabIndex="0" aria-describedby="jsxProps-desc"><h2>&lt;JSX prop=&#123;value&#125;</h2></dt>
+          <dd role="tooltip" id="jsxProps-desc">
+            JSX elements receive attributes separately or with a spread operator:
+            <pre><code>&lt;<span class="func">Element</span>{' {...'}<span class="var">props</span>{'} />'}</code></pre>
+            Solid uses a babel plugin to transform JSX to efficient rendering through cloning templates; updates are just side effects within Solid's reactive system.<br/>
+            <a href="https://www.solidjs.com/guides/rendering#attributes-and-props">Guide</a>
+          </dd>
           <dt tabIndex="0" aria-describedby="ref-desc"><code>ref</code> - access DOM element</dt>
           <dd role="tooltip" id="ref-desc">
             A reference to DOM arrays for intrinsic elements and whatever reference components return (or not).<br/>
@@ -410,15 +416,24 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
             Will make sure <code>prop.foo</code> will not be tracked<br/>
             <a href="https://www.solidjs.com/docs/latest/api#%2F*-%40once-*%2F">Docs</a>
           </dd>
+          <dt tabIndex="0" aria-describedby="propsChildren-desc"><h2>/&gt;&#123;props.children&#125;&lt;/JSX&gt;</h2></dt>
+          <dd role="tooltip" id="propsChildren-desc">
+            Children in Solid are typically HTML elements, an array of HTML elements, strings, false or null or a function returning any of the aforementioned.<br/>
+            <a href="https://www.solidjs.com/guides/rendering#children">Guide</a>
+          </dd>
         </dl>
-        <h2>/&gt;&#123;props.children&#125;&lt;/JSX&gt;</h2>
       </section>
       <section>
         <h2>JSX Control Flow</h2>
         <dl>
           <dt tabIndex="0" aria-describedby="Show-desc"><code>&lt;Show&gt;</code> - conditionally show content</dt>
           <dd role="tooltip" id="Show-desc">
-            TODO<br/>
+            <pre><code>{'<'}<span class="func">Show</span>{'\n  '}
+            <span class="key">when</span>{'={'}<span class="func">condition</span>{'()}\n  '}
+            <span class="key">fallback</span>{'={<'}<span class="lit">div</span>{'>Fallback</'}<span class="lit">div</span>{'>}\n>\n'}
+            {'  <'}<span class="func">Content </span>{'/>\n</'}
+            <span class="func">Show</span>{'>'}</code></pre>
+            Renders the children if the condition returns a truthy value, otherwise renders the optional fallback (or nothing as a default).<br/>
             <a href="https://www.solidjs.com/docs/api#<show>">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="For-desc"><code>&lt;For&gt;</code> - map fixed length array</dt>
