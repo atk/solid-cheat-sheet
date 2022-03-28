@@ -291,6 +291,7 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
           </dd>
           <dt tabIndex="0" aria-describedby="createUniqueId-desc"><code>createUniqueId</code> - unique ID for components</dt>
           <dd role="tooltip" id="createUniqueId-desc">
+            <pre><code><span class="key">const </span><span class="var">componentId</span> = <span class="func">createUniqueId</span>();</code></pre>
             Creates a unique ID that is stable across server and browser.<br/>
             <a href="https://www.solidjs.com/docs/api#createuniqueid">Docs</a>
           </dd>
@@ -301,16 +302,19 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
         <dl>
           <dt tabIndex="0" aria-describedby="render-desc"><code>render</code> - applies component to mount point</dt>
           <dd role="tooltip" id="render-desc">
+            <pre><code><span class="func">render</span>{'(() => <'}<span class="func">App</span>{' />, '}<span class="var">document</span>.<span class="func">getElementById</span>(<span class="lit">"root"</span>{'));'}</code></pre>
             Browser-only method to add a component to a mount point inside its own reactive root.<br/>
             <a href="https://www.solidjs.com/docs/api#render">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="hydrate-desc"><code>hydrate</code> - adds client-side logic to server-rendered html</dt>
           <dd role="tooltip" id="hydrate-desc">
+            <pre><code><span class="func">hydrate</span>{'(() => <'}<span class="func">App</span>{' />, '}<span class="var">document</span>.<span class="func">getElementById</span>(<span class="lit">"root"</span>{'));'}</code></pre>
             Browser-only method to add client-side logic (e.g. event handlers) to server-rendered code.<br/>
             <a href="https://www.solidjs.com/docs/api#hydrate">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="renderToString-desc"><code>renderToString</code> - html string from component</dt>
           <dd role="tooltip" id="renderToString-desc">
+            <pre><code><span class="key">const </span><span class="var">html</span> = <span class="func">renderToString</span>{'(() => <'}<span class="func">App</span>{' />);'}</code></pre>
             Creates a static HTML string from a component to be sent to the client and be hydrated using <code><span class="func">hydrate</span>()</code>.<br/>
             <a href="https://www.solidjs.com/docs/api#rendertostring">Docs</a>
           </dd>
@@ -346,7 +350,7 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
         <dl>
           <dt tabIndex="0" aria-describedby="ref-desc"><code>ref</code> - access DOM element</dt>
           <dd role="tooltip" id="ref-desc">
-            a reference to DOM arrays for intrinsic elements and whatever reference components return (or not).<br/>
+            A reference to DOM arrays for intrinsic elements and whatever reference components return (or not).<br/>
             <a href="https://www.solidjs.com/docs/api#ref">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="classList-desc"><code>classList</code> - class names from object</dt>
@@ -356,48 +360,48 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
           </dd>
           <dt tabIndex="0" aria-describedby="style-desc"><code>style</code> - inline styles (string or object)</dt>
           <dd role="tooltip" id="style-desc">
-            TODO<br/>
+            Attribute to set inline styles and CSS variables, either as a string or from an object.<br/>
             <a href="https://www.solidjs.com/docs/api#style">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="innerHTML-desc"><code>innerHTML</code> - directly inject HTML</dt>
           <dd role="tooltip" id="innerHTML-desc">
-            TODO<br/>
+            Set the HTML content (<strong>Warning</strong>: overwrites child nodes and can lead to security issues if the content is not completely controlled)<br/>
             <a href="https://www.solidjs.com/docs/api#innerhtml">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="textContent-desc"><code>textContent</code> - directly inject Text</dt>
           <dd role="tooltip" id="textContent-desc">
-            TODO<br/>
+            Replace the content with a text node containing the given text (<strong>Warning</strong>: may overwrite child nodes)<br/>
             <a href="https://www.solidjs.com/docs/api#textcontent">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="on__-desc"><code>on[event]</code> - delegated dom events</dt>
           <dd role="tooltip" id="on__-desc">
-            TODO<br/>
+            Delegated event listeners (using event.currentTarget instead of event.target), only bound once.<br/>
             <a href="https://www.solidjs.com/docs/api#on__">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="on_event-desc"><code>on:[event]</code> - direct dom events</dt>
           <dd role="tooltip" id="on_event-desc">
-            TODO<br/>
+            Native event listener (for typescript, this requires extending the JSX namespace)<br/>
             <a href="https://www.solidjs.com/docs/api#on%3A___%2Foncapture%3A___">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="oncapture-desc"><code>oncapture:[event]</code> - capturing dom events</dt>
           <dd role="tooltip" id="oncapture-desc">
-            TODO<br/>
+            Native event listener with capturing (for typescript, this requires extending the JSX namespace)<br/>
             <a href="https://www.solidjs.com/docs/api#on%3A___%2Foncapture%3A___">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="use-desc"><code>use:[directive]</code> - use custom directive</dt>
           <dd role="tooltip" id="use-desc">
-            TODO<br/>
+            Directives are functions that receives the node of the intrinsic element as first and their property as second argument, allowing for elegant code reuse (for typescript, this requires extending the JSX namespace)<br/>
             <a href="https://www.solidjs.com/docs/api#use%3A___">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="prop-desc"><code>prop:[property]</code> - direct dom property access</dt>
           <dd role="tooltip" id="prop-desc">
-            TODO<br/>
+            Will set the property as property of the intrinsic element instead of an attribute<br/>
             <a href="https://www.solidjs.com/docs/api#prop%3A___">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="attr-desc"><code>attr:[attribute]</code> - direct dom attribute 
           access</dt>
           <dd role="tooltip" id="attr-desc">
-            TODO<br/>
+            Will set the property as attribute of the intrinsic element instead of a property<br/>
             <a href="https://www.solidjs.com/docs/api#attr%3A___">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="once-desc"><code>/*@once*/</code> - untrack for properties</dt>
