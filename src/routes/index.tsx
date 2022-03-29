@@ -436,44 +436,52 @@ const [<span class="var">resource</span>, &#123; <span class="var">mutate</span>
             Renders the children if the condition returns a truthy value, otherwise renders the optional fallback (or nothing as a default).<br/>
             <a href="https://www.solidjs.com/docs/api#<show>">Docs</a>
           </dd>
-          <dt tabIndex="0" aria-describedby="For-desc"><code>&lt;For&gt;</code> - map fixed length array</dt>
-          <dd role="tooltip" id="For-desc">
-            TODO<br/>
-            <a href="https://www.solidjs.com/docs/api#<for>">Docs</a>
-          </dd>
-          <dt tabIndex="0" aria-describedby="Index-desc"><code>&lt;Index&gt;</code> - map varying length array</dt>
-          <dd role="tooltip" id="Index-desc">
-            TODO<br/>
-            <a href="https://www.solidjs.com/docs/api#<index>">Docs</a>
-          </dd>
           <dt tabIndex="0" aria-describedby="Switch-desc"><code>&lt;Switch&gt;/&lt;Match&gt;</code> - multiple conditions</dt>
           <dd role="tooltip" id="Switch-desc">
-            TODO<br/>
+            <pre><code>{'<'}<span class="func">Switch</span> <span class="key">fallback</span>{'={<'}<span class="lit">div</span>{'>Fallback</'}<span class="lit">div</span>{'>}>\n  <'}
+            <span class="func">Match</span> <span class="key">when</span>{'={'}<span class="func">conditionA</span>{'()}><'}<span class="func">PartA</span>{' /></'}<span class="func">Match</span>{'>\n  <'}
+            <span class="func">Match</span> <span class="key">when</span>{'={'}<span class="func">conditionB</span>{'()}><'}<span class="func">PartB</span>{' /></'}<span class="func">Match</span>{'>\n</'}
+            <span class="func">Switch</span>{'>'}</code></pre>
+            Like a <code><span class="key">switch</span></code>-Statement, but as a control flow component.<br/>
             <a href="https://www.solidjs.com/docs/api#<switch>%2F<match>">Docs</a>
+          </dd>
+          <dt tabIndex="0" aria-describedby="For-desc"><code>&lt;For&gt;</code> - map array items by position</dt>
+          <dd role="tooltip" id="For-desc">
+
+            Will track array items by reference over changing positions; if you expect more changes of positions than changes of content, use <code>&lt;<span class="func">For</span>&gt;</code>, otherwise consider using <code>&lt;<span class="func">Index</span>&gt;</code><br/>
+            <a href="https://www.solidjs.com/docs/api#<for>">Docs</a>
+          </dd>
+          <dt tabIndex="0" aria-describedby="Index-desc"><code>&lt;Index&gt;</code> - map array items by value</dt>
+          <dd role="tooltip" id="Index-desc">
+            Will track array items by content; if you expect content to change rather than changing positions, use <code>&lt;<span class="func">Index</span>&gt;</code>, otherwise consider using <code>&lt;<span class="func">For</span>&gt;</code><br/>
+            <a href="https://www.solidjs.com/docs/api#<index>">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="Dynamic-desc"><code>&lt;Dynamic&gt;</code> - variable component</dt>
           <dd role="tooltip" id="Dynamic-desc">
-            TODO<br/>
+            <pre><code>{'<'}<span class="func">Dynamic</span>{'\n  '}
+            <span class="key">component</span>{'={'}<span class="func">loggedIn</span>() ? <span class="func">App</span> : <span class="func">Login</span>{'}\n  '}
+            <span class="key">user</span>{'={'}<span class="func">user</span>(){'}\n/>'}</code></pre>
+            Returns a component of a variable type, use strings for intrinsic elements or functions for components<br/>
             <a href="https://www.solidjs.com/docs/api#<dynamic>">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="Portal-desc"><code>&lt;Portal&gt;</code> - render elsewhere</dt>
           <dd role="tooltip" id="Portal-desc">
-            TODO<br/>
+            Switch the mount point for the children<br/>
             <a href="https://www.solidjs.com/docs/api#<portal>">Docs</a>
           </dd>
-          <dt tabIndex="0" aria-describedby="ErrorBoundary-desc"><code>&lt;ErrorBoundary&gt;</code> - map fixed length array</dt>
+          <dt tabIndex="0" aria-describedby="ErrorBoundary-desc"><code>&lt;ErrorBoundary&gt;</code> - catch errors in components</dt>
           <dd role="tooltip" id="ErrorBoundary-desc">
-            TODO<br/>
+            Catches errors for the childrens, present a fallback and allows handling the errors and reset the state<br/>
             <a href="https://www.solidjs.com/docs/api#<errorboundary>">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="Suspense-desc"><code>&lt;Suspense&gt;</code> - fallback for async state</dt>
           <dd role="tooltip" id="Suspense-desc">
-            TODO<br/>
+            Shows an optional fallback until the resource promises inside the component (from createResource or lazy) are resolved<br/>
             <a href="https://www.solidjs.com/docs/api#<suspense>">Docs</a>
           </dd>
           <dt tabIndex="0" aria-describedby="SuspenseList-desc"><code>&lt;<em>SuspenseList</em>&gt;</code> - organize async fallback</dt>
           <dd role="tooltip" id="SuspenseList-desc">
-            TODO<br/>
+            <strong>Experimental</strong>; allows defining the order in which suspended parts of the layout are replaced with the loaded content in order to avoid layout thrashing<br/>
             <a href="https://www.solidjs.com/docs/api#<suspenselist>">Docs</a>
           </dd>
         </dl>

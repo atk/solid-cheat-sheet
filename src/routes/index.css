@@ -6,7 +6,6 @@ main { display: flex; flex-direction: column; flex-wrap: wrap; padding-top: 4rem
 h1 { position: absolute; top: 0rem; line-height: 4rem; left: 1rem; }
 section { padding: 0.5rem 1rem; line-height: 1.65; }
 h2 { font-size: inherit; }
-h2:not(:only-of-type) + dl { padding-left: 0.65rem; }
 dl { list-style: none; position: relative; }
 dl dd {
   transition: opacity 0.125ms linear;
