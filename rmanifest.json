@@ -2,17 +2,17 @@
   "/": [
     {
       "type": "script",
-      "href": "/assets/index.6e5b58e1.js"
+      "href": "/assets/index.c1994c82.js"
     },
     {
       "type": "script",
-      "href": "/assets/entry-client.42776667.js"
+      "href": "/assets/entry-client.50ac22bc.js"
     }
   ],
   "*": [
     {
       "type": "script",
-      "href": "/assets/entry-client.42776667.js"
+      "href": "/assets/entry-client.50ac22bc.js"
     }
   ]
 }
