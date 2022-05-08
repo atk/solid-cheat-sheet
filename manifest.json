@@ -1,6 +1,6 @@
 {
   "src/entry-client.tsx": {
-    "file": "assets/entry-client.50ac22bc.js",
+    "file": "assets/entry-client.83e66fc5.js",
     "src": "src/entry-client.tsx",
     "isEntry": true,
     "dynamicImports": [
@@ -8,7 +8,7 @@
     ]
   },
   "src/routes/index.tsx": {
-    "file": "assets/index.c1994c82.js",
+    "file": "assets/index.7006e9db.js",
     "src": "src/routes/index.tsx",
     "isDynamicEntry": true,
     "imports": [
