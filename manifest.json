@@ -1,45 +1,45 @@
 {
   "src/entry-client.tsx": {
-    "file": "assets/entry-client.db6bb730.js",
+    "file": "assets/entry-client.eabd547b.js",
     "src": "src/entry-client.tsx",
     "isEntry": true,
     "dynamicImports": [
-      "src/routes/[...404].mdx",
+      "src/routes/404.mdx",
       "src/routes/index.mdx"
     ],
     "css": [
-      "assets/entry-client.7ccf4ab7.css"
+      "assets/entry-client.f9844ff7.css"
     ]
   },
-  "src/routes/[...404].mdx": {
-    "file": "assets/_...404_.41640f9e.js",
-    "src": "src/routes/[...404].mdx",
+  "src/routes/404.mdx": {
+    "file": "assets/404.17e4fbc8.js",
+    "src": "src/routes/404.mdx",
     "isDynamicEntry": true,
     "imports": [
-      "_index.ed9877dc.js",
+      "_index.980ec782.js",
       "src/entry-client.tsx"
     ]
   },
-  "_index.ed9877dc.js": {
-    "file": "assets/index.ed9877dc.js",
+  "_index.980ec782.js": {
+    "file": "assets/index.980ec782.js",
     "imports": [
       "src/entry-client.tsx"
     ]
   },
   "src/routes/index.mdx": {
-    "file": "assets/index.a9cabda8.js",
+    "file": "assets/index.7d327e11.js",
     "src": "src/routes/index.mdx",
     "isDynamicEntry": true,
     "imports": [
       "src/entry-client.tsx",
-      "_index.ed9877dc.js"
+      "_index.980ec782.js"
     ],
     "css": [
       "assets/index.2e9eaf0e.css"
     ]
   },
   "src/entry-client.css": {
-    "file": "assets/entry-client.7ccf4ab7.css",
+    "file": "assets/entry-client.f9844ff7.css",
     "src": "src/entry-client.css"
   },
   "src/routes/index.css": {
