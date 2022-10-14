@@ -1,19 +1,38 @@
 // @refresh reload
-import { Links, Meta, Routes, Scripts } from "solid-start/root";
+import { Routes } from "@solidjs/router";
+import { Suspense } from "solid-js";
+import { ErrorBoundary } from "solid-start/error-boundary";
+import {
+  Body,
+  FileRoutes,
+  Head,
+  Html,
+  Meta,
+  Scripts,
+  Title,
+} from "solid-start";
+import "./root.css";
 
 export default function Root() {
   return (
-    <html lang="en">
-      <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <Meta />
-        <Links />
-      </head>
-      <body>
-        <Routes />
+    <Html lang="en">
+      <Head>
+        <Title>Solid Cheat Sheet</Title>
+        <Meta charset="utf-8" />
+        <Meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      <Body>
+        <ErrorBoundary>
+          <Suspense>
+            <main>
+              <Routes>
+                <FileRoutes />
+              </Routes>
+            </main>
+          </Suspense>
+        </ErrorBoundary>
         <Scripts />
-      </body>
-    </html>
+      </Body>
+    </Html>
   );
 }
