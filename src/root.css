@@ -3,4 +3,5 @@ html { font: calc(0.7em + 0.85vmin) sans-serif; line-height: 1.5 }
 h1 { font-weight: 500; }
 code { letter-spacing: -0.025rem; }
 main { display: flex; flex-direction: column; flex-wrap: wrap; padding-top: 4rem; max-height: 100vh; }
+blockquote p { padding: 1em; }
 h1 { position: absolute; top: 0rem; line-height: 4rem; left: 1rem; }
