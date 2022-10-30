@@ -42,24 +42,10 @@ export default defineConfig({
         ]
       }),
       enforce: "pre",
-    },
-/*    {
-      name: "twoslash-fix-lsp-linebreaks",
-      transform: (code, id) => {
-        if (id.endsWith(".md") || id.endsWith(".mdx")) {
-          return {
-            code: code.replace(/lsp="([^"]*)"/g, (match, p1) => {
-              return `lsp={\`${p1.replaceAll("`", `\\\``)}\`}`;
-            }),
-          };
-        }
-        return { code };
-      },
-      enforce: "pre",
-    }, */
+    } as any,
     solid({
       adapter: solidStatic(),
-      extensions: [".mdx", ".md"],
+      extensions: [".mdx", ".md"]
     }),
   ],
 });

@@ -24,11 +24,9 @@ export default function Root() {
       <Body>
         <ErrorBoundary>
           <Suspense>
-            <main>
-              <Routes>
-                <FileRoutes />
-              </Routes>
-            </main>
+            <Routes>
+              <FileRoutes />
+            </Routes>
           </Suspense>
         </ErrorBoundary>
         <Scripts />
