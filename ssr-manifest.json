@@ -9,10 +9,10 @@
   "node_modules/@solidjs/router/dist/routing.js": [],
   "node_modules/@solidjs/router/dist/components.jsx": [],
   "node_modules/solid-start/error-boundary/ErrorBoundary.tsx": [],
+  "node_modules/solid-start/root/FileRoutes.tsx": [],
   "node_modules/solid-start/server/ServerContext.tsx": [],
   "node_modules/solid-start/router.tsx": [],
   "node_modules/solid-start/server/types.tsx": [],
-  "node_modules/solid-start/root/FileRoutes.tsx": [],
   "node_modules/solid-start/root/Scripts.tsx": [],
   "node_modules/solid-start/root/Document.tsx": [],
   "src/root.css": [],
@@ -20,21 +20,25 @@
   "node_modules/solid-start/entry-client/StartClient.tsx": [],
   "src/entry-client.tsx": [],
   "src/routes/404.mdx": [
-    "./assets/404.17e4fbc8.js"
+    "./assets/404.a20d904f.js"
   ],
   "node_modules/solid-mdx/dist/index.mjs": [
-    "./assets/index.980ec782.js"
+    "./assets/index.905a1ffd.js"
+  ],
+  "src/components/Sheet.tsx": [
+    "./assets/index.c1b91e26.js",
+    "./assets/index.2e9eaf0e.css"
   ],
   "src/components/Section.css": [
-    "./assets/index.7d327e11.js",
+    "./assets/index.c1b91e26.js",
     "./assets/index.2e9eaf0e.css"
   ],
   "src/components/Section.tsx": [
-    "./assets/index.7d327e11.js",
+    "./assets/index.c1b91e26.js",
     "./assets/index.2e9eaf0e.css"
   ],
   "src/routes/index.mdx": [
-    "./assets/index.7d327e11.js",
+    "./assets/index.c1b91e26.js",
     "./assets/index.2e9eaf0e.css"
   ]
 }
