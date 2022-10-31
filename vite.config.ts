@@ -45,7 +45,9 @@ export default defineConfig({
     } as any,
     solid({
       adapter: solidStatic(),
-      extensions: [".mdx", ".md"]
+      extensions: [".mdx", ".md"],
+      ssr: true,
+      hydrationEvents: ["mousemove", "touchstart", "touchmove"]
     }),
   ],
 });

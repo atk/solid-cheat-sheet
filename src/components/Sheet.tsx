@@ -1,8 +1,8 @@
-import { onMount, onCleanup } from "solid-js";
+import { onMount, onCleanup, createEffect } from "solid-js";
 import { isServer, NoHydration } from "solid-js/web";
 
-const useTooltipPositions: (() => void) & { applied?: boolean } = isServer ? () => {} : () => {
-  if (useTooltipPositions.applied) {
+const useTooltipPositions: (() => void) & { applied?: boolean } = () => {
+  if (isServer || useTooltipPositions.applied) {
     return;
   }
   useTooltipPositions.applied = true;
@@ -32,6 +32,9 @@ const useTooltipPositions: (() => void) & { applied?: boolean } = isServer ? () 
 }
 
 export const Sheet = (props) => {
-  useTooltipPositions();
-  return <main><NoHydration>{props.children}</NoHydration></main>
+  return <main
+    onMouseMove={() => useTooltipPositions()}
+    onTouchStart={() => useTooltipPositions()}
+    onTouchMove={() => useTooltipPositions()}
+  ><NoHydration>{props.children}</NoHydration></main>
 }
