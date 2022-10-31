@@ -1,7 +1,7 @@
-diff --git a/packages/start/root/Scripts.tsx b/packages/start/root/Scripts.tsx
+diff --git a/node_modules/solid-start/root/Scripts.tsx b/node_modules/solid-start/root/Scripts.tsx
 index 8f64043..b209ec5 100644
---- a/packages/start/root/Scripts.tsx
-+++ b/packages/start/root/Scripts.tsx
+--- a/node_modules/solid-start/root/Scripts.tsx
++++ b/node_modules/solid-start/root/Scripts.tsx
 @@ -5,13 +5,16 @@ import { InlineStyles } from "./InlineStyles";
  
  const isDev = import.meta.env.MODE === "development";
@@ -20,10 +20,10 @@ index 8f64043..b209ec5 100644
        {isIslands && (
          <script>{`
          _$HY.islandMap = {};
-diff --git a/packages/start/types.ts b/packages/start/types.ts
+diff --git a/node_modules/solid-start/types.ts b/node_modules/solid-start/types.ts
 index 792b8b3..975fcc3 100644
---- a/packages/start/types.ts
-+++ b/packages/start/types.ts
+--- a/node_modules/solid-start/types.ts
++++ b/node_modules/solid-start/types.ts
 @@ -28,6 +28,7 @@ export type StartOptions = {
    appRoot: string;
    routesDir: string;
@@ -38,10 +38,10 @@ index 792b8b3..975fcc3 100644
  
 -export {};
 +export { };
-diff --git a/packages/start/vite/plugin.d.ts b/packages/start/vite/plugin.d.ts
+diff --git a/node_modules/solid-start/vite/plugin.d.ts b/node_modules/solid-start/vite/plugin.d.ts
 index 84c080f..b4d45b6 100644
---- a/packages/start/vite/plugin.d.ts
-+++ b/packages/start/vite/plugin.d.ts
+--- a/node_modules/solid-start/vite/plugin.d.ts
++++ b/node_modules/solid-start/vite/plugin.d.ts
 @@ -3,6 +3,7 @@ export type Options = {
    appRoot: string;
    routesDir: string;
@@ -50,10 +50,10 @@ index 84c080f..b4d45b6 100644
    islands: boolean;
    islandsRouter: boolean;
    prerenderRoutes: any[];
-diff --git a/packages/start/vite/plugin.js b/packages/start/vite/plugin.js
+diff --git a/node_modules/solid-start/vite/plugin.js b/node_modules/solid-start/vite/plugin.js
 index f04eb03..61c06b1 100644
---- a/packages/start/vite/plugin.js
-+++ b/packages/start/vite/plugin.js
+--- a/node_modules/solid-start/vite/plugin.js
++++ b/node_modules/solid-start/vite/plugin.js
 @@ -501,6 +501,9 @@ function solidStartConfig(options) {
            "process.env.TEST_ENV": JSON.stringify(process.env.TEST_ENV),
            "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
