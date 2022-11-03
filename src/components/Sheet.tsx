@@ -1,8 +1,8 @@
-import { onMount, onCleanup, createEffect } from "solid-js";
-import { isServer, NoHydration } from "solid-js/web";
+import { onMount, onCleanup } from "solid-js";
+import { NoHydration } from "solid-js/web";
 
-const useTooltipPositions: (() => void) & { applied?: boolean } = () => {
-  if (isServer || useTooltipPositions.applied) {
+export const useTooltipPositions: (() => void) & { applied?: boolean } = () => {
+  if (useTooltipPositions.applied || !globalThis.window) {
     return;
   }
   useTooltipPositions.applied = true;
@@ -30,6 +30,8 @@ const useTooltipPositions: (() => void) & { applied?: boolean } = () => {
     useTooltipPositions.applied = false;
   });
 }
+
+useTooltipPositions;
 
 export const Sheet = (props) => {
   return <main
