@@ -20,25 +20,25 @@
   "node_modules/solid-start/entry-client/StartClient.tsx": [],
   "src/entry-client.tsx": [],
   "src/routes/404.mdx": [
-    "./assets/404.ca474f99.js"
+    "./assets/404.9829ccb4.js"
   ],
   "node_modules/solid-mdx/dist/index.mjs": [
-    "./assets/index.1e7e6bfd.js"
+    "./assets/index.9b1e9766.js"
   ],
   "src/components/Sheet.tsx": [
-    "./assets/index.6ecbfe19.js",
+    "./assets/index.78f0d5dd.js",
     "./assets/index.2e9eaf0e.css"
   ],
   "src/components/Section.css": [
-    "./assets/index.6ecbfe19.js",
+    "./assets/index.78f0d5dd.js",
     "./assets/index.2e9eaf0e.css"
   ],
   "src/components/Section.tsx": [
-    "./assets/index.6ecbfe19.js",
+    "./assets/index.78f0d5dd.js",
     "./assets/index.2e9eaf0e.css"
   ],
   "src/routes/index.mdx": [
-    "./assets/index.6ecbfe19.js",
+    "./assets/index.78f0d5dd.js",
     "./assets/index.2e9eaf0e.css"
   ]
 }
