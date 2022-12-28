@@ -1,7 +1,7 @@
 import solid from "solid-start/vite";
-import { build, defineConfig } from "vite";
+import { defineConfig } from "vite";
 import solidStatic from "solid-start-static";
-import rehypeRaw from "rehype-raw";
+import solidMdx from "solid-start-mdx";
 import { default as remarkTwoslash } from "remark-shiki-twoslash";
 import mdx from "@mdx-js/rollup";
 import { nodeTypes } from "@mdx-js/mdx";
@@ -9,47 +9,14 @@ import { nodeTypes } from "@mdx-js/mdx";
 export default defineConfig({
   base: "./",
   build: {
-    sourcemap: true
+    minify: false
   },
   plugins: [
-    {
-      ...mdx({
-        jsx: true,
-        jsxImportSource: "solid-js",
-        providerImportSource: "solid-mdx",
-        rehypePlugins: [[rehypeRaw, { passThrough: nodeTypes }]],
-        remarkPlugins: [
-          [(remarkTwoslash as typeof remarkTwoslash & { default: typeof remarkTwoslash }).default, {
-            disableImplicitReactImport: true,
-            includeJSDocInHover: true,
-            // theme: "css-variables",
-            theme: "github-light",
-            // themes: ["github-light", "github-dark"],
-            defaultOptions: {
-              lib: ["dom", "es2015"],
-            },
-            defaultCompilerOptions: {
-              allowSyntheticDefaultImports: true,
-              esModuleInterop: true,
-              target: "ESNext",
-              module: "ESNext",
-              lib: ["dom", "es2015"],
-              jsxImportSource: "solid-js",
-              jsx: "preserve",
-              types: ["vite/client"],
-              paths: {
-                "~/*": ["./src/*"],
-              },
-            },
-          }]
-        ]
-      }),
-      enforce: "pre",
-    } as any,
+    solidMdx({ themes: ["default"] }),
     solid({
       adapter: solidStatic(),
-      extensions: [".mdx", ".md"],
-      hydrationEvents: ["mousemove", "touchstart", "touchmove"]      
+      ssr: true,
+      extensions: [".mdx", ".md"]     
     }),
-  ],
+  ]
 });

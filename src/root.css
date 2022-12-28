@@ -5,3 +5,10 @@ code { letter-spacing: -0.025rem; }
 main { display: flex; flex-direction: column; flex-wrap: wrap; padding-top: 4rem; max-height: 100vh; }
 blockquote p { padding: 1em; }
 h1 { position: absolute; top: 0rem; line-height: 4rem; left: 1rem; }
+
+:root {
+  --shiki-token-keyword: #36b;
+  --shiki-color-text: default;
+  --shiki-token-constant: #48d;
+  --shiki-token-function: #492;
+}
