@@ -12,7 +12,7 @@ export default defineConfig({
     minify: false
   },
   plugins: [
-    solidMdx({ themes: ["default"] }),
+    solidMdx({ themes: ["css-variables"] }),
     solid({
       adapter: solidStatic(),
       ssr: true,

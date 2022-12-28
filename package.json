@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "solid-start dev",
     "build": "solid-start build",
-    "start": "solid-start start"
+    "start": "solid-start start",
+    "postinstall": "cat solid-start-mdx-theme.patch | patch -Np1"
   },
   "type": "module",
   "devDependencies": {
