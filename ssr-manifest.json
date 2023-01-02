@@ -1,44 +1,49 @@
 {
-  "node_modules/solid-js/dist/solid.js": [],
-  "node_modules/solid-js/web/dist/web.js": [],
+  "src/routes/404.mdx": [
+    "./assets/404-ffedc116.js"
+  ],
+  "node_modules/solid-mdx/dist/index.mjs": [
+    "./assets/index-6e7c418a.js"
+  ],
+  "node_modules/solid-js/dist/dev.js": [],
+  "node_modules/solid-js/web/dist/dev.js": [],
   "\u0000vite/preload-helper": [],
   "node_modules/solid-start/entry-client/mount.tsx": [],
   "node_modules/@solidjs/meta/dist/index.jsx": [],
   "node_modules/@solidjs/router/dist/integration.js": [],
+  "node_modules/@solidjs/router/dist/lifecycle.js": [],
   "node_modules/@solidjs/router/dist/utils.js": [],
   "node_modules/@solidjs/router/dist/routing.js": [],
   "node_modules/@solidjs/router/dist/components.jsx": [],
-  "node_modules/solid-start/error-boundary/ErrorBoundary.tsx": [],
   "node_modules/solid-start/root/FileRoutes.tsx": [],
   "node_modules/solid-start/server/ServerContext.tsx": [],
   "node_modules/solid-start/router.tsx": [],
   "node_modules/solid-start/server/types.tsx": [],
+  "node_modules/solid-start/error-boundary/ErrorBoundary.tsx": [],
   "node_modules/solid-start/root/Scripts.tsx": [],
   "node_modules/solid-start/root/Document.tsx": [],
   "src/root.css": [],
   "src/root.tsx": [],
   "node_modules/solid-start/entry-client/StartClient.tsx": [],
   "src/entry-client.tsx": [],
-  "src/routes/404.mdx": [
-    "./assets/404.9829ccb4.js"
-  ],
-  "node_modules/solid-mdx/dist/index.mjs": [
-    "./assets/index.9b1e9766.js"
+  "404-ffedc116.js": [],
+  "index-ec00ea01.js": [
+    "./assets/index-3f4d13fc.css"
   ],
   "src/components/Sheet.tsx": [
-    "./assets/index.78f0d5dd.js",
-    "./assets/index.2e9eaf0e.css"
+    "./assets/index-ec00ea01.js",
+    "./assets/index-3f4d13fc.css"
   ],
   "src/components/Section.css": [
-    "./assets/index.78f0d5dd.js",
-    "./assets/index.2e9eaf0e.css"
+    "./assets/index-ec00ea01.js",
+    "./assets/index-3f4d13fc.css"
   ],
   "src/components/Section.tsx": [
-    "./assets/index.78f0d5dd.js",
-    "./assets/index.2e9eaf0e.css"
+    "./assets/index-ec00ea01.js",
+    "./assets/index-3f4d13fc.css"
   ],
   "src/routes/index.mdx": [
-    "./assets/index.78f0d5dd.js",
-    "./assets/index.2e9eaf0e.css"
+    "./assets/index-ec00ea01.js",
+    "./assets/index-3f4d13fc.css"
   ]
 }

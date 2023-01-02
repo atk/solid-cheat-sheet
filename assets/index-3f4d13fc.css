@@ -1,0 +1,34 @@
+section.cheat-sheet { padding: 0.5rem 1rem; line-height: 1.65; }
+section.cheat-sheet h2 { font-size: inherit; }
+section.cheat-sheet dl { list-style: none; position: relative; }
+section.cheat-sheet dl dd {
+  transition: opacity 0.125ms linear;
+  opacity: 1;
+  position: absolute;
+  z-index: 999;
+  background: #FFF;
+  left: 0.5rem;
+  padding: 0.5rem;
+  box-shadow: 0 0 0.5rem 0.02rem #000;
+  border-radius: 0.5rem;
+  max-width: 100vw;
+  max-height: 100vh;
+}
+@media (max-width: 30rem) {
+  section.cheat-sheet dl dd { left: 0; }
+  section.cheat-sheet pre { white-space: pre-wrap; }
+}
+section.cheat-sheet dl dt:not(:hover, :focus) + dd:not(:hover, :focus) { opacity: 0; pointer-events: none; }
+section.cheat-sheet dd.bottom { transform: translateY(-100%); margin-top: -1.5rem; }
+section.cheat-sheet dd.right { right: 0.5rem; left: auto; }
+section.cheat-sheet dd a[href*="solidjs.com/docs"], section.cheat-sheet dd a[href*="solidjs.com/guides"] {
+  font-size: 0.8rem;
+  color: #FFFFFF;
+  background: #4377bb;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.125rem;
+  text-decoration: none;
+}
+section.cheat-sheet .language-id {
+  display: none;
+}
