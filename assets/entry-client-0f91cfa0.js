@@ -3,7 +3,8 @@ function setHydrateContext(context) {
   sharedConfig.context = context;
 }
 function nextHydrateContext() {
-  return { ...sharedConfig.context,
+  return {
+    ...sharedConfig.context,
     id: `${sharedConfig.context.id}${sharedConfig.context.count++}-`,
     count: 0
   };
@@ -36,17 +37,22 @@ let rootCount = 0;
 const [transPending, setTransPending] = /*@__PURE__*/createSignal(false);
 function createRoot(fn, detachedOwner) {
   const listener = Listener,
-        owner = Owner,
-        unowned = fn.length === 0,
-        root = unowned && !"_SOLID_DEV_" ? UNOWNED : {
-    owned: null,
-    cleanups: null,
-    context: null,
-    owner: detachedOwner || owner
-  },
-        updateFn = unowned ? () => fn(() => {
-    throw new Error("Dispose method must be an explicit argument to createRoot function");
-  })  : () => fn(() => untrack(() => cleanNode(root)));
+    owner = Owner,
+    unowned = fn.length === 0,
+    root = unowned ? {
+      owned: null,
+      cleanups: null,
+      context: null,
+      owner: null
+    }  : {
+      owned: null,
+      cleanups: null,
+      context: null,
+      owner: detachedOwner || owner
+    },
+    updateFn = unowned ? () => fn(() => {
+      throw new Error("Dispose method must be an explicit argument to createRoot function");
+    })  : () => fn(() => untrack(() => cleanNode(root)));
   {
     if (owner) root.name = `${owner.name}-r${rootCount++}`;
     globalThis._$afterCreateRoot && globalThis._$afterCreateRoot(root);
@@ -88,7 +94,7 @@ function createRenderEffect(fn, value, options) {
 function createEffect(fn, value, options) {
   runEffects = runUserEffects;
   const c = createComputation(fn, value, false, STALE, options ),
-        s = SuspenseContext && lookup(Owner, SuspenseContext.id);
+    s = SuspenseContext && lookup(Owner, SuspenseContext.id);
   if (s) c.suspense = s;
   c.user = true;
   Effects ? Effects.push(c) : updateComputation(c);
@@ -116,19 +122,19 @@ function createResource(pSource, pFetcher, pOptions) {
     options = pOptions || {};
   }
   let pr = null,
-      initP = NO_INIT,
-      id = null,
-      loadedUnderTransition = false,
-      scheduled = false,
-      resolved = ("initialValue" in options),
-      dynamic = typeof source === "function" && createMemo(source);
+    initP = NO_INIT,
+    id = null,
+    loadedUnderTransition = false,
+    scheduled = false,
+    resolved = ("initialValue" in options),
+    dynamic = typeof source === "function" && createMemo(source);
   const contexts = new Set(),
-        [value, setValue] = (options.storage || createSignal)(options.initialValue),
-        [error, setError] = createSignal(undefined),
-        [track, trigger] = createSignal(undefined, {
-    equals: false
-  }),
-        [state, setState] = createSignal(resolved ? "ready" : "unresolved");
+    [value, setValue] = (options.storage || createSignal)(options.initialValue),
+    [error, setError] = createSignal(undefined),
+    [track, trigger] = createSignal(undefined, {
+      equals: false
+    }),
+    [state, setState] = createSignal(resolved ? "ready" : "unresolved");
   if (sharedConfig.context) {
     id = `${sharedConfig.context.id}${sharedConfig.context.count++}`;
     let v;
@@ -164,8 +170,8 @@ function createResource(pSource, pFetcher, pOptions) {
   }
   function read() {
     const c = SuspenseContext && lookup(Owner, SuspenseContext.id),
-          v = value(),
-          err = error();
+      v = value(),
+      err = error();
     if (err && !pr) throw err;
     if (Listener && !Listener.user && c) {
       createComputed(() => {
@@ -284,6 +290,8 @@ function runWithOwner(o, fn) {
   Owner = o;
   try {
     return runUpdates(fn, true);
+  } catch (err) {
+    handleError(err);
   } finally {
     Owner = prev;
   }
@@ -326,11 +334,10 @@ function devComponent(Comp, props) {
       [$DEVCOMP]: true
     });
     return Comp(props);
-  }), undefined, true);
+  }), undefined, true, 0);
   c.props = props;
   c.observers = null;
   c.observerSlots = null;
-  c.state = 0;
   c.componentName = Comp.name;
   updateComputation(c);
   return c.tValue !== undefined ? c.tValue : c.value;
@@ -363,6 +370,7 @@ function registerGraph(name, value) {
     Owner.sourceMap || (Owner.sourceMap = {});
     while (Owner.sourceMap[tryName]) tryName = `${name}-${++i}`;
     Owner.sourceMap[tryName] = value;
+    value.graph = Owner;
   }
   return tryName;
 }
@@ -460,8 +468,8 @@ function updateComputation(node) {
   if (!node.fn) return;
   cleanNode(node);
   const owner = Owner,
-        listener = Listener,
-        time = ExecCount;
+    listener = Listener,
+    time = ExecCount;
   Listener = Owner = node;
   runComputation(node, Transition && Transition.running && Transition.sources.has(node) ? node.tValue : node.value, time);
   if (Transition && !Transition.running && Transition.sources.has(node)) {
@@ -482,7 +490,17 @@ function runComputation(node, value, time) {
   try {
     nextValue = node.fn(value);
   } catch (err) {
-    if (node.pure) Transition && Transition.running ? node.tState = STALE : node.state = STALE;
+    if (node.pure) {
+      if (Transition && Transition.running) {
+        node.tState = STALE;
+        node.tOwned && node.tOwned.forEach(cleanNode);
+        node.tOwned = undefined;
+      } else {
+        node.state = STALE;
+        node.owned && node.owned.forEach(cleanNode);
+        node.owned = null;
+      }
+    }
     handleError(err);
   }
   if (!node.updatedAt || node.updatedAt <= time) {
@@ -537,7 +555,7 @@ function runTop(node) {
     node = ancestors[i];
     if (runningTransition) {
       let top = node,
-          prev = ancestors[i + 1];
+        prev = ancestors[i + 1];
       while ((top = top.owner) && top !== prev) {
         if (Transition.disposed.has(top)) return;
       }
@@ -617,7 +635,7 @@ function runQueue(queue) {
 }
 function runUserEffects(queue) {
   let i,
-      userLength = 0;
+    userLength = 0;
   for (i = 0; i < queue.length; i++) {
     const e = queue[i];
     if (!e.user) runTop(e);else queue[userLength++] = e;
@@ -653,11 +671,11 @@ function cleanNode(node) {
   if (node.sources) {
     while (node.sources.length) {
       const source = node.sources.pop(),
-            index = node.sourceSlots.pop(),
-            obs = source.observers;
+        index = node.sourceSlots.pop(),
+        obs = source.observers;
       if (obs && obs.length) {
         const n = obs.pop(),
-              s = source.observerSlots.pop();
+          s = source.observerSlots.pop();
         if (index < obs.length) {
           n.sourceSlots[s] = index;
           obs[index] = n;
@@ -833,14 +851,40 @@ function mergeProps(...sources) {
 }
 function splitProps(props, ...keys) {
   const blocked = new Set(keys.flat());
+  if ($PROXY in props) {
+    const res = keys.map(k => {
+      return new Proxy({
+        get(property) {
+          return k.includes(property) ? props[property] : undefined;
+        },
+        has(property) {
+          return k.includes(property) && property in props;
+        },
+        keys() {
+          return k.filter(property => property in props);
+        }
+      }, propTraps);
+    });
+    res.push(new Proxy({
+      get(property) {
+        return blocked.has(property) ? undefined : props[property];
+      },
+      has(property) {
+        return blocked.has(property) ? false : property in props;
+      },
+      keys() {
+        return Object.keys(props).filter(k => !blocked.has(k));
+      }
+    }, propTraps));
+    return res;
+  }
   const descriptors = Object.getOwnPropertyDescriptors(props);
-  const isProxy = ($PROXY in props);
-  if (!isProxy) keys.push(Object.keys(descriptors).filter(k => !blocked.has(k)));
-  const res = keys.map(k => {
+  keys.push(Object.keys(descriptors).filter(k => !blocked.has(k)));
+  return keys.map(k => {
     const clone = {};
     for (let i = 0; i < k.length; i++) {
       const key = k[i];
-      if (!isProxy && !(key in props)) continue;
+      if (!(key in props)) continue;
       Object.defineProperty(clone, key, descriptors[key] ? descriptors[key] : {
         get() {
           return props[key];
@@ -853,20 +897,6 @@ function splitProps(props, ...keys) {
     }
     return clone;
   });
-  if (isProxy) {
-    res.push(new Proxy({
-      get(property) {
-        return blocked.has(property) ? undefined : props[property];
-      },
-      has(property) {
-        return blocked.has(property) ? false : property in props;
-      },
-      keys() {
-        return Object.keys(props).filter(k => !blocked.has(k));
-      }
-    }, propTraps));
-  }
-  return res;
 }
 function lazy(fn) {
   let comp;
@@ -958,25 +988,25 @@ function ErrorBoundary$1(props) {
 const SuspenseListContext = createContext();
 function Suspense(props) {
   let counter = 0,
-      show,
-      ctx,
-      p,
-      flicker,
-      error;
+    show,
+    ctx,
+    p,
+    flicker,
+    error;
   const [inFallback, setFallback] = createSignal(false),
-        SuspenseContext = getSuspenseContext(),
-        store = {
-    increment: () => {
-      if (++counter === 1) setFallback(true);
+    SuspenseContext = getSuspenseContext(),
+    store = {
+      increment: () => {
+        if (++counter === 1) setFallback(true);
+      },
+      decrement: () => {
+        if (--counter === 0) setFallback(false);
+      },
+      inFallback,
+      effects: [],
+      resolved: false
     },
-    decrement: () => {
-      if (--counter === 0) setFallback(false);
-    },
-    inFallback,
-    effects: [],
-    resolved: false
-  },
-        owner = getOwner();
+    owner = getOwner();
   if (sharedConfig.context && sharedConfig.load) {
     const key = sharedConfig.context.id + sharedConfig.context.count;
     let ref = sharedConfig.load(key);
@@ -1016,10 +1046,10 @@ function Suspense(props) {
         const rendered = createMemo(() => props.children);
         return createMemo(prev => {
           const inFallback = store.inFallback(),
-                {
-            showContent = true,
-            showFallback = true
-          } = show ? show() : {};
+            {
+              showContent = true,
+              showFallback = true
+            } = show ? show() : {};
           if ((!inFallback || p && p !== "$$f") && showContent) {
             store.resolved = true;
             dispose && dispose();
@@ -1077,12 +1107,12 @@ const SVGNamespace = {
 
 function reconcileArrays(parentNode, a, b) {
   let bLength = b.length,
-      aEnd = a.length,
-      bEnd = bLength,
-      aStart = 0,
-      bStart = 0,
-      after = a[aEnd - 1].nextSibling,
-      map = null;
+    aEnd = a.length,
+    bEnd = bLength,
+    aStart = 0,
+    bStart = 0,
+    after = a[aEnd - 1].nextSibling,
+    map = null;
   while (aStart < aEnd || bStart < bEnd) {
     if (a[aStart] === b[bStart]) {
       aStart++;
@@ -1116,8 +1146,8 @@ function reconcileArrays(parentNode, a, b) {
       if (index != null) {
         if (bStart < index && index < bEnd) {
           let i = aStart,
-              sequence = 1,
-              t;
+            sequence = 1,
+            t;
           while (++i < aEnd && i < bEnd) {
             if ((t = map.get(a[i])) == null || t !== index + sequence) break;
             sequence++;
@@ -1184,7 +1214,7 @@ function addEventListener(node, name, handler, delegate) {
 }
 function classList(node, value, prev = {}) {
   const classKeys = Object.keys(value || {}),
-        prevKeys = Object.keys(prev);
+    prevKeys = Object.keys(prev);
   let i, len;
   for (i = 0, len = prevKeys.length; i < len; i++) {
     const key = prevKeys[i];
@@ -1194,7 +1224,7 @@ function classList(node, value, prev = {}) {
   }
   for (i = 0, len = classKeys.length; i < len; i++) {
     const key = classKeys[i],
-          classValue = !!value[key];
+      classValue = !!value[key];
     if (!key || key === "undefined" || prev[key] === classValue || !classValue) continue;
     toggleClassKey(node, key, true);
     prev[key] = classValue;
@@ -1281,8 +1311,8 @@ function getNextElement(template) {
 }
 function getNextMarker(start) {
   let end = start,
-      count = 0,
-      current = [];
+    count = 0,
+    current = [];
   if (sharedConfig.context) {
     while (end) {
       if (end.nodeType === 8) {
@@ -1374,7 +1404,14 @@ function eventHandler(e) {
   });
   if (sharedConfig.registry && !sharedConfig.done) {
     sharedConfig.done = true;
-    document.querySelectorAll("[id^=pl-]").forEach(elem => elem.remove());
+    document.querySelectorAll("[id^=pl-]").forEach(elem => {
+      while (elem && elem.nodeType !== 8 && elem.nodeValue !== "pl-" + e) {
+        let x = elem.nextSibling;
+        elem.remove();
+        elem = x;
+      }
+      elem && elem.remove();
+    });
   }
   while (node) {
     const handler = node[key];
@@ -1391,7 +1428,7 @@ function insertExpression(parent, value, current, marker, unwrapArray) {
   while (typeof current === "function") current = current();
   if (value === current) return current;
   const t = typeof value,
-        multi = marker !== undefined;
+    multi = marker !== undefined;
   parent = multi && current[0] && current[0].parentNode || parent;
   if (t === "string" || t === "number") {
     if (sharedConfig.context) return current;
@@ -1458,7 +1495,7 @@ function normalizeIncomingArray(normalized, array, current, unwrap) {
   let dynamic = false;
   for (let i = 0, len = array.length; i < len; i++) {
     let item = array[i],
-        prev = current && current[i];
+      prev = current && current[i];
     if (item instanceof Node) {
       normalized.push(item);
     } else if (item == null || item === true || item === false) ; else if (Array.isArray(item)) {
@@ -1896,7 +1933,7 @@ function extractSearchParams(url) {
     });
     return params;
 }
-function createMatcher(path, partial) {
+function createMatcher(path, partial, matchFilters) {
     const [pattern, splat] = path.split("/*", 2);
     const segments = pattern.split("/").filter(Boolean);
     const len = segments.length;
@@ -1910,22 +1947,49 @@ function createMatcher(path, partial) {
             path: len ? "" : "/",
             params: {}
         };
+        const matchFilter = (s) => matchFilters === undefined ? undefined : matchFilters[s];
         for (let i = 0; i < len; i++) {
             const segment = segments[i];
             const locSegment = locSegments[i];
-            if (segment[0] === ":") {
-                match.params[segment.slice(1)] = locSegment;
+            const key = segment[0] === ":" ? segment.slice(1) : segment;
+            if (segment[0] === ":" && matchSegment(locSegment, matchFilter(key))) {
+                match.params[key] = locSegment;
             }
-            else if (segment.localeCompare(locSegment, undefined, { sensitivity: "base" }) !== 0) {
+            else if (!matchSegment(locSegment, segment)) {
                 return null;
             }
             match.path += `/${locSegment}`;
         }
         if (splat) {
-            match.params[splat] = lenDiff ? locSegments.slice(-lenDiff).join("/") : "";
+            const remainder = lenDiff ? locSegments.slice(-lenDiff).join("/") : "";
+            if (matchSegment(remainder, matchFilter(splat))) {
+                match.params[splat] = remainder;
+            }
+            else {
+                return null;
+            }
         }
         return match;
     };
+}
+function matchSegment(input, filter) {
+    const isEqual = (s) => s.localeCompare(input, undefined, { sensitivity: "base" }) === 0;
+    if (filter === undefined) {
+        return true;
+    }
+    else if (typeof filter === "string") {
+        return isEqual(filter);
+    }
+    else if (typeof filter === "function") {
+        return filter(input);
+    }
+    else if (Array.isArray(filter)) {
+        return filter.some(isEqual);
+    }
+    else if (filter instanceof RegExp) {
+        return filter.test(input);
+    }
+    return false;
 }
 function scoreRoute(route) {
     const [pattern, splat] = route.pattern.split("/*", 2);
@@ -2017,7 +2081,7 @@ function createRoutes(routeDef, base = "", fallback) {
                 ...shared,
                 originalPath,
                 pattern,
-                matcher: createMatcher(pattern, !isLeaf)
+                matcher: createMatcher(pattern, !isLeaf, routeDef.matchFilters)
             });
         }
         return acc;
@@ -2295,11 +2359,10 @@ function createRouterContext(integration, base = "", data, out) {
         beforeLeave
     };
 }
-function createRouteContext(router, parent, child, match) {
+function createRouteContext(router, parent, child, match, params) {
     const { base, location, navigatorFactory } = router;
     const { pattern, element: outlet, preload, data } = match().route;
     const path = createMemo(() => match().path);
-    const params = createMemoObject(() => match().params);
     preload && preload();
     const route = {
         parent,
@@ -2351,6 +2414,14 @@ const Routes$1 = props => {
   const routeDefs = children(() => props.children);
   const branches = createMemo(() => createBranches(routeDefs(), joinPaths(parentRoute.pattern, props.base || ""), Outlet));
   const matches = createMemo(() => getRouteMatches(branches(), router.location.pathname));
+  const params = createMemoObject(() => {
+    const m = matches();
+    const params = {};
+    for (let i = 0; i < m.length; i++) {
+      Object.assign(params, m[i].params);
+    }
+    return params;
+  });
   if (router.out) {
     router.out.matches.push(matches().map(({
       route,
@@ -2380,7 +2451,7 @@ const Routes$1 = props => {
         }
         createRoot(dispose => {
           disposers[i] = dispose;
-          next[i] = createRouteContext(router, next[i - 1] || parentRoute, () => routeStates()[i + 1], () => matches()[i]);
+          next[i] = createRouteContext(router, next[i - 1] || parentRoute, () => routeStates()[i + 1], () => matches()[i], params);
         });
       }
     }
@@ -2462,10 +2533,10 @@ function A(props) {
 }
 
 const fileRoutes = [{
-  component: lazy(() => __vitePreload(() => import('./404-ffedc116.js'),true?["./404-ffedc116.js","./index-6e7c418a.js"]:void 0,import.meta.url)),
+  component: lazy(() => __vitePreload(() => import('./404-db45437f.js'),true?["./404-db45437f.js","./index-55791be5.js"]:void 0,import.meta.url)),
   path: "/404"
 }, {
-  component: lazy(() => __vitePreload(() => import('./index-ec00ea01.js'),true?["./index-ec00ea01.js","./index-6e7c418a.js","./index-3f4d13fc.css"]:void 0,import.meta.url)),
+  component: lazy(() => __vitePreload(() => import('./index-babab3fd.js'),true?["./index-babab3fd.js","./index-55791be5.js","./index-66519204.css"]:void 0,import.meta.url)),
   path: "/"
 }];
 
@@ -2637,9 +2708,19 @@ const StartClient = (() => {
         return throwClientError("request");
       }
     },
+    get clientAddress() {
+      {
+        return throwClientError("clientAddress");
+      }
+    },
+    get locals() {
+      {
+        return throwClientError("locals");
+      }
+    },
     get prevUrl() {
       {
-        return throwClientError("request");
+        return throwClientError("prevUrl");
       }
     },
     get responseHeaders() {

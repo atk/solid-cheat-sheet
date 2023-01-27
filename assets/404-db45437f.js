@@ -1,5 +1,5 @@
-import { c as createComponent, m as mergeProps, g as getNextElement, a as getNextMarker, i as insert, A, t as template } from './entry-client-1ac441f3.js';
-import { M } from './index-6e7c418a.js';
+import { c as createComponent, m as mergeProps, g as getNextElement, a as getNextMarker, i as insert, A, t as template } from './entry-client-0f91cfa0.js';
+import { M } from './index-55791be5.js';
 
 const _tmpl$ = /*#__PURE__*/template(`<main><!#><!/><!#><!/></main>`, 6);
 function getHeadings() {

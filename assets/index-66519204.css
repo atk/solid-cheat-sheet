@@ -18,7 +18,7 @@ section.cheat-sheet dl dd {
   section.cheat-sheet dl dd { left: 0; }
   section.cheat-sheet pre { white-space: pre-wrap; }
 }
-section.cheat-sheet dl dt:not(:hover, :focus) + dd:not(:hover, :focus) { opacity: 0; pointer-events: none; }
+section.cheat-sheet dl dt:not(:hover, :focus) + dd:not(:hover, :focus) { opacity: 0; pointer-events: none; display: none; }
 section.cheat-sheet dd.bottom { transform: translateY(-100%); margin-top: -1.5rem; }
 section.cheat-sheet dd.right { right: 0.5rem; left: auto; }
 section.cheat-sheet dd a[href*="solidjs.com/docs"], section.cheat-sheet dd a[href*="solidjs.com/guides"] {
