@@ -30,6 +30,8 @@ jobs:
 
       - name: build
         run: npm run build
+        env:
+          BASE_PATH: /solid-cheat-sheet/
 
       - name: deploy pages
         uses: JamesIves/github-pages-deploy-action@v4.4.1

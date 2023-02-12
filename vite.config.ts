@@ -6,8 +6,10 @@ import { default as remarkTwoslash } from "remark-shiki-twoslash";
 import mdx from "@mdx-js/rollup";
 import { nodeTypes } from "@mdx-js/mdx";
 
+console.log('using base path', process.env.BASE_PATH ?? "./");
+
 export default defineConfig({
-  base: "./",
+  base: process.env.BASE_PATH ?? "./",
   build: {
     minify: false
   },
@@ -15,8 +17,7 @@ export default defineConfig({
     solidMdx({ themes: ["css-variables"] }),
     solid({
       adapter: solidStatic(),
-      ssr: true,
-      extensions: [".mdx", ".md"]     
+      extensions: [".mdx", ".md"]
     }),
   ]
 });
