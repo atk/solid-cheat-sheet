@@ -10,9 +10,6 @@ console.log('using base path', process.env.BASE_PATH ?? "./");
 
 export default defineConfig({
   base: process.env.BASE_PATH ?? "./",
-  build: {
-    minify: false
-  },
   plugins: [
     solidMdx({ themes: ["css-variables"] }),
     solid({
