@@ -2,51 +2,51 @@
   "/404": [
     {
       "type": "script",
-      "href": "/solid-cheat-sheet/assets/404-79501a65.js"
+      "href": "/solid-cheat-sheet/assets/404-fb632b02.js"
     },
     {
       "type": "script",
-      "href": "/solid-cheat-sheet/assets/entry-client-1b562d52.js"
+      "href": "/solid-cheat-sheet/assets/entry-client-bf397c9f.js"
     },
     {
       "type": "style",
-      "href": "/solid-cheat-sheet/assets/entry-client-edc96cdc.css"
+      "href": "/solid-cheat-sheet/assets/entry-client-0f2d80ef.css"
     },
     {
       "type": "script",
-      "href": "/solid-cheat-sheet/assets/index-0b4509b5.js"
+      "href": "/solid-cheat-sheet/assets/index-a256f0da.js"
     }
   ],
   "/": [
     {
       "type": "script",
-      "href": "/solid-cheat-sheet/assets/index-5a2d7425.js"
+      "href": "/solid-cheat-sheet/assets/index-e275911b.js"
     },
     {
       "type": "script",
-      "href": "/solid-cheat-sheet/assets/entry-client-1b562d52.js"
+      "href": "/solid-cheat-sheet/assets/entry-client-bf397c9f.js"
     },
     {
       "type": "style",
-      "href": "/solid-cheat-sheet/assets/entry-client-edc96cdc.css"
+      "href": "/solid-cheat-sheet/assets/entry-client-0f2d80ef.css"
     },
     {
       "type": "script",
-      "href": "/solid-cheat-sheet/assets/index-0b4509b5.js"
+      "href": "/solid-cheat-sheet/assets/index-a256f0da.js"
     },
     {
       "type": "style",
-      "href": "/solid-cheat-sheet/assets/index-66519204.css"
+      "href": "/solid-cheat-sheet/assets/index-0023436d.css"
     }
   ],
   "entry-client": [
     {
       "type": "script",
-      "href": "/solid-cheat-sheet/assets/entry-client-1b562d52.js"
+      "href": "/solid-cheat-sheet/assets/entry-client-bf397c9f.js"
     },
     {
       "type": "style",
-      "href": "/solid-cheat-sheet/assets/entry-client-edc96cdc.css"
+      "href": "/solid-cheat-sheet/assets/entry-client-0f2d80ef.css"
     }
   ],
   "index.html": []
