@@ -2,51 +2,51 @@
   "/404": [
     {
       "type": "script",
-      "href": "./assets/404-db45437f.js"
+      "href": "/solid-cheat-sheet/assets/404-79501a65.js"
     },
     {
       "type": "script",
-      "href": "./assets/entry-client-0f91cfa0.js"
+      "href": "/solid-cheat-sheet/assets/entry-client-1b562d52.js"
     },
     {
       "type": "style",
-      "href": "./assets/entry-client-edc96cdc.css"
+      "href": "/solid-cheat-sheet/assets/entry-client-edc96cdc.css"
     },
     {
       "type": "script",
-      "href": "./assets/index-55791be5.js"
+      "href": "/solid-cheat-sheet/assets/index-0b4509b5.js"
     }
   ],
   "/": [
     {
       "type": "script",
-      "href": "./assets/index-babab3fd.js"
+      "href": "/solid-cheat-sheet/assets/index-5a2d7425.js"
     },
     {
       "type": "script",
-      "href": "./assets/entry-client-0f91cfa0.js"
+      "href": "/solid-cheat-sheet/assets/entry-client-1b562d52.js"
     },
     {
       "type": "style",
-      "href": "./assets/entry-client-edc96cdc.css"
+      "href": "/solid-cheat-sheet/assets/entry-client-edc96cdc.css"
     },
     {
       "type": "script",
-      "href": "./assets/index-55791be5.js"
+      "href": "/solid-cheat-sheet/assets/index-0b4509b5.js"
     },
     {
       "type": "style",
-      "href": "./assets/index-66519204.css"
+      "href": "/solid-cheat-sheet/assets/index-66519204.css"
     }
   ],
   "entry-client": [
     {
       "type": "script",
-      "href": "./assets/entry-client-0f91cfa0.js"
+      "href": "/solid-cheat-sheet/assets/entry-client-1b562d52.js"
     },
     {
       "type": "style",
-      "href": "./assets/entry-client-edc96cdc.css"
+      "href": "/solid-cheat-sheet/assets/entry-client-edc96cdc.css"
     }
   ],
   "index.html": []

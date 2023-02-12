@@ -287,13 +287,16 @@ function getOwner() {
 }
 function runWithOwner(o, fn) {
   const prev = Owner;
+  const prevListener = Listener;
   Owner = o;
+  Listener = null;
   try {
     return runUpdates(fn, true);
   } catch (err) {
     handleError(err);
   } finally {
     Owner = prev;
+    Listener = prevListener;
   }
 }
 function startTransition(fn) {
@@ -582,6 +585,7 @@ function runUpdates(fn, init) {
     return res;
   } catch (err) {
     if (!Updates) Effects = null;
+    Updates = null;
     handleError(err);
   }
 }
@@ -1581,7 +1585,7 @@ function Dynamic(props) {
   });
 }
 
-const scriptRel = 'modulepreload';const assetsURL = function(dep, importerUrl) { return new URL(dep, importerUrl).href };const seen = {};const __vitePreload = function preload(baseModule, deps, importerUrl) {
+const scriptRel = 'modulepreload';const assetsURL = function(dep) { return "/solid-cheat-sheet/"+dep };const seen = {};const __vitePreload = function preload(baseModule, deps, importerUrl) {
     // @ts-expect-error true will be replaced with boolean later
     if (!true || !deps || deps.length === 0) {
         return baseModule();
@@ -1589,7 +1593,7 @@ const scriptRel = 'modulepreload';const assetsURL = function(dep, importerUrl) {
     const links = document.getElementsByTagName('link');
     return Promise.all(deps.map((dep) => {
         // @ts-expect-error assetsURL is declared before preload.toString()
-        dep = assetsURL(dep, importerUrl);
+        dep = assetsURL(dep);
         if (dep in seen)
             return;
         seen[dep] = true;
@@ -2533,10 +2537,10 @@ function A(props) {
 }
 
 const fileRoutes = [{
-  component: lazy(() => __vitePreload(() => import('./404-db45437f.js'),true?["./404-db45437f.js","./index-55791be5.js"]:void 0,import.meta.url)),
+  component: lazy(() => __vitePreload(() => import('./404-79501a65.js'),true?["assets/404-79501a65.js","assets/index-0b4509b5.js"]:void 0)),
   path: "/404"
 }, {
-  component: lazy(() => __vitePreload(() => import('./index-babab3fd.js'),true?["./index-babab3fd.js","./index-55791be5.js","./index-66519204.css"]:void 0,import.meta.url)),
+  component: lazy(() => __vitePreload(() => import('./index-5a2d7425.js'),true?["assets/index-5a2d7425.js","assets/index-0b4509b5.js","assets/index-66519204.css"]:void 0)),
   path: "/"
 }];
 
@@ -2769,6 +2773,9 @@ const StartClient = (() => {
       return createComponent(MetaProvider, {
         get children() {
           return createComponent(StartRouter, {
+            get base() {
+              return "/solid-cheat-sheet/";
+            },
             data: dataFn,
             get children() {
               return createComponent(Root, {});

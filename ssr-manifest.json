@@ -1,49 +1,71 @@
 {
-  "src/routes/404.mdx": [
-    "./assets/404-db45437f.js"
+  "\u0000vite/preload-helper": [
+  ],
+  "404-79501a65.js": [
+  ],
+  "index-5a2d7425.js": [
+    "/solid-cheat-sheet/assets/index-66519204.css"
+  ],
+  "node_modules/@solidjs/meta/dist/index.jsx": [
+  ],
+  "node_modules/@solidjs/router/dist/components.jsx": [
+  ],
+  "node_modules/@solidjs/router/dist/integration.js": [
+  ],
+  "node_modules/@solidjs/router/dist/lifecycle.js": [
+  ],
+  "node_modules/@solidjs/router/dist/routing.js": [
+  ],
+  "node_modules/@solidjs/router/dist/utils.js": [
+  ],
+  "node_modules/solid-js/dist/dev.js": [
+  ],
+  "node_modules/solid-js/web/dist/dev.js": [
   ],
   "node_modules/solid-mdx/dist/index.mjs": [
-    "./assets/index-55791be5.js"
+    "/solid-cheat-sheet/assets/index-0b4509b5.js"
   ],
-  "node_modules/solid-js/dist/dev.js": [],
-  "node_modules/solid-js/web/dist/dev.js": [],
-  "\u0000vite/preload-helper": [],
-  "node_modules/solid-start/entry-client/mount.tsx": [],
-  "node_modules/@solidjs/meta/dist/index.jsx": [],
-  "node_modules/@solidjs/router/dist/integration.js": [],
-  "node_modules/@solidjs/router/dist/lifecycle.js": [],
-  "node_modules/@solidjs/router/dist/utils.js": [],
-  "node_modules/@solidjs/router/dist/routing.js": [],
-  "node_modules/@solidjs/router/dist/components.jsx": [],
-  "node_modules/solid-start/root/FileRoutes.tsx": [],
-  "node_modules/solid-start/server/ServerContext.tsx": [],
-  "node_modules/solid-start/router.tsx": [],
-  "node_modules/solid-start/server/types.tsx": [],
-  "node_modules/solid-start/error-boundary/ErrorBoundary.tsx": [],
-  "node_modules/solid-start/root/Scripts.tsx": [],
-  "node_modules/solid-start/root/Document.tsx": [],
-  "src/root.css": [],
-  "src/root.tsx": [],
-  "node_modules/solid-start/entry-client/StartClient.tsx": [],
-  "src/entry-client.tsx": [],
-  "404-db45437f.js": [],
-  "index-babab3fd.js": [
-    "./assets/index-66519204.css"
+  "node_modules/solid-start/entry-client/StartClient.tsx": [
   ],
-  "src/components/Sheet.tsx": [
-    "./assets/index-babab3fd.js",
-    "./assets/index-66519204.css"
+  "node_modules/solid-start/entry-client/mount.tsx": [
+  ],
+  "node_modules/solid-start/error-boundary/ErrorBoundary.tsx": [
+  ],
+  "node_modules/solid-start/root/Document.tsx": [
+  ],
+  "node_modules/solid-start/root/FileRoutes.tsx": [
+  ],
+  "node_modules/solid-start/root/Scripts.tsx": [
+  ],
+  "node_modules/solid-start/router.tsx": [
+  ],
+  "node_modules/solid-start/server/ServerContext.tsx": [
+  ],
+  "node_modules/solid-start/server/types.tsx": [
   ],
   "src/components/Section.css": [
-    "./assets/index-babab3fd.js",
-    "./assets/index-66519204.css"
+    "/solid-cheat-sheet/assets/index-5a2d7425.js",
+    "/solid-cheat-sheet/assets/index-66519204.css"
   ],
   "src/components/Section.tsx": [
-    "./assets/index-babab3fd.js",
-    "./assets/index-66519204.css"
+    "/solid-cheat-sheet/assets/index-5a2d7425.js",
+    "/solid-cheat-sheet/assets/index-66519204.css"
+  ],
+  "src/components/Sheet.tsx": [
+    "/solid-cheat-sheet/assets/index-5a2d7425.js",
+    "/solid-cheat-sheet/assets/index-66519204.css"
+  ],
+  "src/entry-client.tsx": [
+  ],
+  "src/root.css": [
+  ],
+  "src/root.tsx": [
+  ],
+  "src/routes/404.mdx": [
+    "/solid-cheat-sheet/assets/404-79501a65.js"
   ],
   "src/routes/index.mdx": [
-    "./assets/index-babab3fd.js",
-    "./assets/index-66519204.css"
+    "/solid-cheat-sheet/assets/index-5a2d7425.js",
+    "/solid-cheat-sheet/assets/index-66519204.css"
   ]
 }
