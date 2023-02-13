@@ -4,7 +4,7 @@
     "dev": "solid-start dev",
     "build": "solid-start build",
     "start": "solid-start start",
-    "postinstall": "cat solid-start-mdx-theme.patch | patch -Np1; cat solid-start-use-base-path-in-client-router.patch | patch -Np1"
+    "postinstall": "patch -Np1 -i solid-start-mdx-theme.patch; patch -Np1 -i solid-start-use-base-path-in-client-router.patch"
   },
   "type": "module",
   "devDependencies": {
