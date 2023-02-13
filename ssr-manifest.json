@@ -18,7 +18,7 @@
   "node_modules/solid-js/web/dist/dev.js": [
   ],
   "node_modules/solid-mdx/dist/index.mjs": [
-    "/solid-cheat-sheet/assets/index-a256f0da.js"
+    "/solid-cheat-sheet/assets/index-0fb940c5.js"
   ],
   "node_modules/solid-start/entry-client/StartClient.tsx": [
   ],
@@ -39,15 +39,15 @@
   "node_modules/solid-start/server/types.tsx": [
   ],
   "src/components/Section.css": [
-    "/solid-cheat-sheet/assets/index-e275911b.js",
+    "/solid-cheat-sheet/assets/index-a9aa571d.js",
     "/solid-cheat-sheet/assets/index-0023436d.css"
   ],
   "src/components/Section.tsx": [
-    "/solid-cheat-sheet/assets/index-e275911b.js",
+    "/solid-cheat-sheet/assets/index-a9aa571d.js",
     "/solid-cheat-sheet/assets/index-0023436d.css"
   ],
   "src/components/Sheet.tsx": [
-    "/solid-cheat-sheet/assets/index-e275911b.js",
+    "/solid-cheat-sheet/assets/index-a9aa571d.js",
     "/solid-cheat-sheet/assets/index-0023436d.css"
   ],
   "src/entry-client.tsx": [
@@ -56,11 +56,11 @@
   ],
   "src/root.tsx": [
   ],
-  "src/routes/404.mdx": [
-    "/solid-cheat-sheet/assets/404-fb632b02.js"
+  "src/routes/[...404].mdx": [
+    "/solid-cheat-sheet/assets/_...404_-215bc711.js"
   ],
   "src/routes/index.mdx": [
-    "/solid-cheat-sheet/assets/index-e275911b.js",
+    "/solid-cheat-sheet/assets/index-a9aa571d.js",
     "/solid-cheat-sheet/assets/index-0023436d.css"
   ]
 }
