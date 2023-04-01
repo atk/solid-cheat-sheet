@@ -2,11 +2,11 @@
   "/*404": [
     {
       "type": "script",
-      "href": "/solid-cheat-sheet/assets/_...404_-215bc711.js"
+      "href": "/solid-cheat-sheet/assets/_...404_-427643f4.js"
     },
     {
       "type": "script",
-      "href": "/solid-cheat-sheet/assets/entry-client-3a0c1a01.js"
+      "href": "/solid-cheat-sheet/assets/entry-client-a078a0c2.js"
     },
     {
       "type": "style",
@@ -14,17 +14,17 @@
     },
     {
       "type": "script",
-      "href": "/solid-cheat-sheet/assets/index-0fb940c5.js"
+      "href": "/solid-cheat-sheet/assets/index-66a585b5.js"
     }
   ],
   "/": [
     {
       "type": "script",
-      "href": "/solid-cheat-sheet/assets/index-a9aa571d.js"
+      "href": "/solid-cheat-sheet/assets/index-95abeee2.js"
     },
     {
       "type": "script",
-      "href": "/solid-cheat-sheet/assets/entry-client-3a0c1a01.js"
+      "href": "/solid-cheat-sheet/assets/entry-client-a078a0c2.js"
     },
     {
       "type": "style",
@@ -32,7 +32,7 @@
     },
     {
       "type": "script",
-      "href": "/solid-cheat-sheet/assets/index-0fb940c5.js"
+      "href": "/solid-cheat-sheet/assets/index-66a585b5.js"
     },
     {
       "type": "style",
@@ -42,7 +42,7 @@
   "entry-client": [
     {
       "type": "script",
-      "href": "/solid-cheat-sheet/assets/entry-client-3a0c1a01.js"
+      "href": "/solid-cheat-sheet/assets/entry-client-a078a0c2.js"
     },
     {
       "type": "style",
