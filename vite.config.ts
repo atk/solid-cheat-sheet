@@ -1,20 +1,54 @@
-import solid from "solid-start/vite";
-import { defineConfig } from "vite";
-import solidStatic from "solid-start-static";
-import solidMdx from "solid-start-mdx";
-import { default as remarkTwoslash } from "remark-shiki-twoslash";
-import mdx from "@mdx-js/rollup";
 import { nodeTypes } from "@mdx-js/mdx";
+import { defineConfig } from "@solidjs/start/config";
+/* @ts-ignore */
+import { default as mdx } from "@vinxi/plugin-mdx";
+import rehypeRaw from "rehype-raw";
+import { default as shikiTwoslash } from "remark-shiki-twoslash";
 
-console.log('using base path', process.env.BASE_PATH ?? "./");
+const mdxOptions = {
+  rehypePlugins: [[rehypeRaw, { passThrough: nodeTypes }]],
+  remarkPlugins: [
+    [
+      shikiTwoslash,
+      {
+        disableImplicitReactImport: true,
+        includeJSDocInHover: true,
+        theme: "css-variables",
+        defaultCompilerOptions: {
+          allowSyntheticDefaultImports: true,
+          esModuleInterop: true,
+          target: "ESNext",
+          module: "ESNext",
+          lib: ["lib.dom.d.ts", "lib.es2014.d.ts"],
+          jsxImportSource: "solid-js",
+          jsx: "preserve",
+          types: ["vite/client"],
+          paths: {
+            "~/*": ["./src/*"],
+          },
+        },
+      },
+    ],
+  ],
+};
 
 export default defineConfig({
-  base: process.env.BASE_PATH ?? "./",
+  start: {
+    ssr: true,
+    extensions: ["mdx", "md"],
+    server: {
+      baseURL: process.env.BASE_PATH ?? "./",
+      preset: "static"
+    },
+  },
   plugins: [
-    solidMdx({ themes: ["css-variables"] }),
-    solid({
-      adapter: solidStatic(),
-      extensions: [".mdx", ".md"]
-    }),
-  ]
+    [
+      mdx.withImports({})({
+        jsx: true,
+        jsxImportSource: "solid-js",
+        providerImportSource: "solid-mdx",
+        ...mdxOptions,
+      }),
+    ],
+  ],
 });

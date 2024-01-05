@@ -1,4 +1,4 @@
-import { onMount, onCleanup } from "solid-js";
+import { onMount, onCleanup, type ParentComponent } from "solid-js";
 import { NoHydration } from "solid-js/web";
 
 export const useTooltipPositions: (() => void) & { applied?: boolean } = () => {
@@ -33,7 +33,7 @@ export const useTooltipPositions: (() => void) & { applied?: boolean } = () => {
 
 useTooltipPositions;
 
-export const Sheet = (props) => {
+export const Sheet: ParentComponent<{}> = (props) => {
   return <main
     onMouseMove={() => useTooltipPositions()}
     onTouchStart={() => useTooltipPositions()}

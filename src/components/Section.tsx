@@ -1,8 +1,8 @@
-import { createContext, type ParentComponent, useContext } from "solid-js";
+import { createContext, type ParentComponent, useContext, type JSX } from "solid-js";
 
 import './Section.css';
 
-export const Section = (props) => (
+export const Section = (props: JSX.HTMLAttributes<HTMLDListElement>) => (
   <section class="cheat-sheet">
     <dl class={props.class}>
       {props.children}
@@ -20,12 +20,12 @@ export const SectionItem: ParentComponent<{ id: string }> = (props) => {
   )
 };
 
-export const SectionItemHead = (props) => {
+export const SectionItemHead = (props: JSX.HTMLAttributes<HTMLElement>) => {
   const id = useContext(SectionItemContext);
   return <dt tabIndex="0" aria-describedby={id}>{props.children}</dt>
 }
 
-export const SectionItemText = (props) => {
+export const SectionItemText = (props: JSX.HTMLAttributes<HTMLElement>) => {
   const [id] = useContext(SectionItemContext);
   return <dd role="tooltip" id={id}>{props.children}</dd>
 }
