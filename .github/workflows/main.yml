@@ -32,9 +32,14 @@ jobs:
         run: npm run build
         env:
           BASE_PATH: /solid-cheat-sheet/
+      
+      # creates .output/public/.nojekyll so paths with underscore will be available
+      - name: fix underscore directories
+        run: touch .output/public/.nojekyll
 
       - name: deploy pages
         uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           branch: gh-pages # The branch the action should deploy to.
           folder: .output/public # The folder the action should deploy.
+  
