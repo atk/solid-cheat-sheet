@@ -37,7 +37,7 @@ export default defineConfig({
     ssr: true,
     extensions: ["mdx", "md"],
     server: {
-      baseURL: process.env.BASE_PATH ?? "./",
+      baseURL: process.env.BASE_PATH,
       preset: "static"
     },
   },
