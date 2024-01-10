@@ -34,7 +34,7 @@ const mdxOptions = {
 
 export default defineConfig({
   start: {
-    ssr: true,
+    ssr: "async",
     extensions: ["mdx", "md"],
     server: {
       baseURL: process.env.BASE_PATH,
