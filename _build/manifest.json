@@ -3,34 +3,34 @@
     "file": "assets/client-92916b4a.css",
     "src": "\u0000virtual:#vinxi/handler/client.css"
   },
-  "_HttpStatusCode-b5874230.js": {
+  "_HttpStatusCode-dd849264.js": {
     "dynamicImports": [
       "src/routes/[...404].mdx?pick=$css",
       "src/routes/index.mdx?pick=$css"
     ],
-    "file": "assets/HttpStatusCode-b5874230.js"
+    "file": "assets/HttpStatusCode-dd849264.js"
   },
-  "_index-206de980.js": {
-    "file": "assets/index-206de980.js",
+  "_index-10b96df2.js": {
+    "file": "assets/index-10b96df2.js",
     "imports": [
-      "_web-cc7aa021.js"
+      "_web-359a0177.js"
     ]
   },
-  "_index-91d95b5a.js": {
-    "file": "assets/index-91d95b5a.js",
+  "_index-e5f2924e.js": {
+    "file": "assets/index-e5f2924e.js",
     "imports": [
-      "_web-cc7aa021.js"
+      "_web-359a0177.js"
     ]
   },
-  "_web-cc7aa021.js": {
-    "file": "assets/web-cc7aa021.js"
+  "_web-359a0177.js": {
+    "file": "assets/web-359a0177.js"
   },
   "src/routes/[...404].mdx?pick=$css": {
-    "file": "assets/_...404_-068380c4.js",
+    "file": "assets/_...404_-01f4af80.js",
     "imports": [
-      "_index-206de980.js",
-      "_web-cc7aa021.js",
-      "_HttpStatusCode-b5874230.js"
+      "_index-10b96df2.js",
+      "_web-359a0177.js",
+      "_HttpStatusCode-dd849264.js"
     ],
     "isDynamicEntry": true,
     "isEntry": true,
@@ -44,11 +44,11 @@
     "css": [
       "assets/index-0023436d.css"
     ],
-    "file": "assets/index-de51d363.js",
+    "file": "assets/index-c3cacaca.js",
     "imports": [
-      "_web-cc7aa021.js",
-      "_index-206de980.js",
-      "_index-91d95b5a.js"
+      "_web-359a0177.js",
+      "_index-10b96df2.js",
+      "_index-e5f2924e.js"
     ],
     "isDynamicEntry": true,
     "isEntry": true,
@@ -58,11 +58,11 @@
     "css": [
       "assets/client-92916b4a.css"
     ],
-    "file": "assets/client-08b8478f.js",
+    "file": "assets/client-51f76e94.js",
     "imports": [
-      "_HttpStatusCode-b5874230.js",
-      "_index-91d95b5a.js",
-      "_web-cc7aa021.js"
+      "_HttpStatusCode-dd849264.js",
+      "_index-e5f2924e.js",
+      "_web-359a0177.js"
     ],
     "isEntry": true,
     "src": "virtual:#vinxi/handler/client"
